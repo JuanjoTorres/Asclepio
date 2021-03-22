@@ -2,17 +2,24 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using Assimp;
+using RuntimeMeshImporter;
 
 public class DemoImporterStl : MonoBehaviour
 {
+    private const string MeshPath = "C:/Users/Juanjo Torres/Documents/repos/unity/Asclepio/Assets/Resources/cube2.stl";
+    private GameObject Workspace;
     // Start is called before the first frame update
-    void Start()
-    {
-        AssimpContext importer = new AssimpContext();
 
-        Stream stream = File.Open("mymodel.fbx", FileMode.Open);
-        Scene scene = importer.ImportFileFromStream(stream);
+    private void Awake()
+    {
+        Workspace = GameObject.Find("Workspace");
+        // string fileName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "smoothPelvis.stl");
+        string fileName = Path.Combine(Application.dataPath, "cube2.stl");
+        print(fileName);
+
+        var newAsset = MeshImporter.Load(MeshPath);
+        print(Workspace.name);
+        newAsset.transform.SetParent(Workspace.transform, false);
     }
 
     // Update is called once per frame
@@ -20,4 +27,5 @@ public class DemoImporterStl : MonoBehaviour
     {
         
     }
+
 }
