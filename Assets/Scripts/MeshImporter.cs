@@ -1,278 +1,223 @@
-﻿
-using Assimp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Assimp;
 using UnityEngine;
+using Material = UnityEngine.Material;
+using Mesh = UnityEngine.Mesh;
 
-namespace RuntimeMeshImporter
+namespace UnityMeshImporter
 {
-    class MeshMaterial
+    class MeshMaterialBinding
     {
-        public MeshMaterial(string meshName, UnityEngine.Mesh mesh, UnityEngine.Material material)
+        private string meshName;
+        private UnityEngine.Mesh mesh;
+        private UnityEngine.Material material;
+
+        private MeshMaterialBinding() { }    // Do not allow default constructor
+
+        public MeshMaterialBinding(string meshName, Mesh mesh, Material material)
         {
-            MeshName = meshName;
-            Mesh = mesh;
-            Material = material;
+            this.meshName = meshName;
+            this.mesh = mesh;
+            this.material = material;
         }
 
-        public string MeshName { get; }
-        public UnityEngine.Mesh Mesh { get; }
-        public UnityEngine.Material Material { get; }
+        public Mesh Mesh { get => mesh; }
+        public Material Material { get => material; }
+        public string MeshName { get => meshName; }
     }
 
     public class MeshImporter
     {
-        public static GameObject Load(string meshPath, float scaleX = 1,  float scaleY = 1, float scaleZ = 1)
+        public static GameObject Load(string meshPath, float scaleX = 1, float scaleY = 1, float scaleZ = 1)
         {
             if (!File.Exists(meshPath))
-            {
-                Debug.Log("ERROR DE FICHERO: No se ha encontrado ningun archivo con ese nombre.");
                 return null;
-            }
-                
 
             AssimpContext importer = new AssimpContext();
-            Scene scene = importer.ImportFile(meshPath,
-                //PostProcessSteps.MakeLeftHanded |
-                //PostProcessSteps.FlipWindingOrder |
-                PostProcessSteps.Triangulate |
-                PostProcessSteps.GenerateUVCoords
-            );
-
+            Scene scene = importer.ImportFile(meshPath);
             if (scene == null)
-            {
-                Debug.Log("ERROR ASSIMP: El content no se ha procesado correctamente");
                 return null;
-            }
-                
 
-            string parentDirectory = Directory.GetParent(meshPath).FullName;
+            string parentDir = Directory.GetParent(meshPath).FullName;
 
             // Materials
-            List<UnityEngine.Material> uMaterials = new List<UnityEngine.Material>();
-            Debug.Log("Assimp - Escena tiene materiales? " + scene.HasMaterials);
-
+            List<UnityEngine.Material> uMaterials = new List<Material>();
             if (scene.HasMaterials)
             {
-                List<Assimp.Material> aMaterials = scene.Materials;
-                Debug.Log("Assimp - Numero de materiales: " + aMaterials.Count);
-                // Debug Variable
-                var countMaterial = 0;
-
-                foreach (var aMaterial in aMaterials)
+                foreach (var m in scene.Materials)
                 {
                     UnityEngine.Material uMaterial = new UnityEngine.Material(Shader.Find("Standard"));
-                    
-                    // Albedo
-                    Debug.Log("Assimp - Material " + countMaterial + " tiene diffuse? " + aMaterial.HasColorDiffuse);
-                    if (aMaterial.HasColorDiffuse)
-                    {
-                        Color color = new Color (
-                            aMaterial.ColorDiffuse.R,
-                            aMaterial.ColorDiffuse.G,
-                            aMaterial.ColorDiffuse.B,
-                            aMaterial.ColorDiffuse.A
-                        );
 
-                        uMaterial.SetColor("_Color", color);
+                    // Albedo
+                    if (m.HasColorDiffuse)
+                    {
+                        Color color = new Color(
+                            m.ColorDiffuse.R,
+                            m.ColorDiffuse.G,
+                            m.ColorDiffuse.B,
+                            m.ColorDiffuse.A
+                        );
+                        uMaterial.color = color;
                     }
 
                     // Emission
-                    Debug.Log("Assimp - Material " + countMaterial + " tiene emission? " + aMaterial.HasColorEmissive);
-                    if (aMaterial.HasColorEmissive)
+                    if (m.HasColorEmissive)
                     {
                         Color color = new Color(
-                            aMaterial.ColorEmissive.R,
-                            aMaterial.ColorEmissive.G,
-                            aMaterial.ColorEmissive.B,
-                            aMaterial.ColorEmissive.A
+                            m.ColorEmissive.R,
+                            m.ColorEmissive.G,
+                            m.ColorEmissive.B,
+                            m.ColorEmissive.A
                         );
-
                         uMaterial.SetColor("_EmissionColor", color);
                         uMaterial.EnableKeyword("_EMISSION");
                     }
 
                     // Reflectivity
-                    Debug.Log("Assimp - Material " + countMaterial + " tiene reflectivity? " + aMaterial.HasColorReflective);
-                    if (aMaterial.HasReflectivity)
+                    if (m.HasReflectivity)
                     {
-                        uMaterial.SetFloat("_Glossiness", aMaterial.Reflectivity);
+                        uMaterial.SetFloat("_Glossiness", m.Reflectivity);
                     }
 
                     // Texture
-                    Debug.Log("Assimp - Material " + countMaterial + " tiene texture diffuse? " + aMaterial.HasTextureDiffuse);
-                    if (aMaterial.HasTextureDiffuse)
+                    if (m.HasTextureDiffuse)
                     {
-                        Texture2D uTexture = new Texture2D(2,2);
-                        string texturePath = Path.Combine(parentDirectory, aMaterial.TextureDiffuse.FilePath);
+                        Texture2D uTexture = new Texture2D(2, 2);
+                        string texturePath = Path.Combine(parentDir, m.TextureDiffuse.FilePath);
+
                         byte[] byteArray = File.ReadAllBytes(texturePath);
                         bool isLoaded = uTexture.LoadImage(byteArray);
-
                         if (!isLoaded)
                         {
-                            throw new Exception ("Cannot find texture file: " + texturePath);
+                            throw new Exception("Cannot find texture file: " + texturePath);
                         }
 
                         uMaterial.SetTexture("_MainTex", uTexture);
                     }
 
-                    countMaterial++; // TODO delete variable
                     uMaterials.Add(uMaterial);
                 }
-
-                Debug.Log("Unity - Numero de materiales: " + uMaterials.Count);
             }
 
-            // Meshes
-            List<MeshMaterial> uMeshes = new List<MeshMaterial>();
-            // Debug Variable
-            var countMeshes = 0;
-
-            Debug.Log("Assimp - Escena tiene meshes? " + scene.HasMeshes);
+            // Mesh
+            List<MeshMaterialBinding> uMeshAndMats = new List<MeshMaterialBinding>();
             if (scene.HasMeshes)
             {
-                List<Assimp.Mesh> aMeshes = scene.Meshes;
-                Debug.Log("Assimp - Numero de meshes: " + aMeshes.Count);
-
-                foreach (var aMesh in aMeshes)
+                foreach (var m in scene.Meshes)
                 {
                     List<Vector3> uVertices = new List<Vector3>();
                     List<Vector3> uNormals = new List<Vector3>();
-                    List<Vector2> uUV = new List<Vector2>();
+                    List<Vector2> uUv = new List<Vector2>();
                     List<int> uIndices = new List<int>();
 
                     // Vertices
-                    // Variable debug
-                    int countVertexs = 0;
-                    Debug.Log("Assimp - Mesh " + countMeshes + " tiene vertices? " + aMesh.HasVertices);
-                    if (aMesh.HasVertices)
+                    if (m.HasVertices)
                     {
-                        foreach (var vertice in aMesh.Vertices)
+                        foreach (var v in m.Vertices)
                         {
-                            Debug.Log("Vertice " + countVertexs + " : X " + vertice.X + " - Y " + vertice.Y + " - Z " + vertice.Z);
-                            uVertices.Add(new Vector3(vertice.X, vertice.Y, vertice.Z));
-                            countVertexs++;
+                            uVertices.Add(new Vector3(-v.X, v.Y, v.Z));
                         }
-
                     }
 
                     // Normals
-                    // Variable debug
-                    var countNormals = 0;
-                    Debug.Log("Assimp - Mesh " + countMeshes + " tiene normals? " + aMesh.HasNormals);
-                    if (aMesh.HasNormals)
+                    if (m.HasNormals)
                     {
-                        foreach (var aNormal in aMesh.Normals)
+                        foreach (var n in m.Normals)
                         {
-                            Debug.Log("Normal " + countNormals + " : X " + aNormal.X + " - Y " + aNormal.Y + " - Z " + aNormal.Z);
-                            uNormals.Add(new Vector3(aNormal.X, aNormal.Y, aNormal.Z));
-                            countNormals++;
+                            uNormals.Add(new Vector3(-n.X, n.Y, n.Z));
                         }
                     }
 
                     // Triangles
-                    Debug.Log("Assimp - Mesh " + countMeshes + " tiene triangles? " + aMesh.HasFaces);
-                    if (aMesh.HasFaces)
+                    if (m.HasFaces)
                     {
-                        foreach (var face in aMesh.Faces)
+                        foreach (var f in m.Faces)
                         {
-                            // TODO try to rewrite this code
-                            // Ignore degenerated faces
-                            if (face.IndexCount == 1 || face.IndexCount == 2)
+                            // Ignore degenerate faces
+                            if (f.IndexCount == 1 || f.IndexCount == 2)
                                 continue;
 
-                            // Variable Debug
-                            var countIndices = 0;
-                            for (int i = 0; i < (face.IndexCount - 2); i++)
+                            for (int i = 0; i < (f.IndexCount - 2); i++)
                             {
-                                uIndices.Add(face.Indices[i + 2]);
-                                Debug.Log("Indice " + countIndices++ + ": " + face.Indices[i + 2].ToString());
-                                uIndices.Add(face.Indices[i + 1]);
-                                Debug.Log("Indice " + countIndices++ + ": " + face.Indices[i + 1].ToString());
-                                uIndices.Add(face.Indices[0]);
-                                Debug.Log("Indice " + countIndices++ + ": " + face.Indices[i].ToString());
+                                uIndices.Add(f.Indices[i + 2]);
+                                uIndices.Add(f.Indices[i + 1]);
+                                uIndices.Add(f.Indices[0]);
                             }
                         }
                     }
 
-                    // UV (Texture Coordinates)
-                    Debug.Log("Assimp - Mesh " + countMeshes + " tiene uvs? " + aMesh.HasTextureCoords(0));
-                    if (aMesh.HasTextureCoords(0))
+                    // Uv (texture coordinate) 
+                    if (m.HasTextureCoords(0))
                     {
-                        foreach (var aUV in aMesh.TextureCoordinateChannels[0])
-                            uUV.Add(new Vector2(aUV.X, aUV.Y));
+                        foreach (var uv in m.TextureCoordinateChannels[0])
+                        {
+                            uUv.Add(new Vector2(uv.X, uv.Y));
+                        }
                     }
 
                     UnityEngine.Mesh uMesh = new UnityEngine.Mesh();
                     uMesh.vertices = uVertices.ToArray();
                     uMesh.normals = uNormals.ToArray();
                     uMesh.triangles = uIndices.ToArray();
-                    uMesh.uv = uUV.ToArray();
+                    uMesh.uv = uUv.ToArray();
 
-                    uMeshes.Add(new MeshMaterial(aMesh.Name, uMesh, uMaterials[aMesh.MaterialIndex]));
-                    countMeshes++; // TODO delete variable
+                    uMeshAndMats.Add(new MeshMaterialBinding(m.Name, uMesh, uMaterials[m.MaterialIndex]));
                 }
-
-                Debug.Log("Unity - Numero de materiales: " + uMeshes.Count);
             }
 
-            // Create GameObjects from Nodes
-            GameObject NodeToGameObject (Node node)
+            // Create GameObjects from nodes
+            GameObject NodeToGameObject(Node node)
             {
-                GameObject uObject = new GameObject(node.Name);
-                Debug.Log("Unity - Nombre objeto: " + node.Name);
+                GameObject uOb = new GameObject(node.Name);
 
                 // Set Mesh
                 if (node.HasMeshes)
                 {
-                    foreach (var aMeshIndices in node.MeshIndices)
+                    foreach (var mIdx in node.MeshIndices)
                     {
-                        var uMesh = uMeshes[aMeshIndices];
+                        var uMeshAndMat = uMeshAndMats[mIdx];
 
-                        GameObject uSubObject = new GameObject(uMesh.MeshName);
-                        uSubObject.AddComponent<MeshFilter>();
-                        uSubObject.AddComponent<MeshRenderer>();
-                        uSubObject.AddComponent<MeshCollider>();
+                        GameObject uSubOb = new GameObject(uMeshAndMat.MeshName);
+                        uSubOb.AddComponent<MeshFilter>();
+                        uSubOb.AddComponent<MeshRenderer>();
+                        uSubOb.AddComponent<MeshCollider>();
 
-                        uSubObject.GetComponent<MeshFilter>().mesh = uMesh.Mesh;
-                        uSubObject.GetComponent<MeshRenderer>().material = uMesh.Material;
-                        uSubObject.transform.SetParent(uObject.transform, true);
-                        uSubObject.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
+                        uSubOb.GetComponent<MeshFilter>().mesh = uMeshAndMat.Mesh;
+                        uSubOb.GetComponent<MeshRenderer>().material = uMeshAndMat.Material;
+                        uSubOb.transform.SetParent(uOb.transform, true);
+                        uSubOb.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
                     }
                 }
 
                 // Transform
-                // Decompose Assimp transform into scale, rotation and translation
+                // Decompose Assimp transform into scale, rot and translaction 
                 Assimp.Vector3D aScale = new Assimp.Vector3D();
-                Assimp.Quaternion aQuaternion = new Assimp.Quaternion();
+                Assimp.Quaternion aQuat = new Assimp.Quaternion();
                 Assimp.Vector3D aTranslation = new Assimp.Vector3D();
-                node.Transform.Decompose(out aScale, out aQuaternion, out aTranslation);
+                node.Transform.Decompose(out aScale, out aQuat, out aTranslation);
 
-                // Convert Assimp transform into Unity transform and set transformation of game object
-                UnityEngine.Quaternion uQuaternion = new UnityEngine.Quaternion(aQuaternion.X, aQuaternion.Y, aQuaternion.Z, aQuaternion.W);
-                var euler = uQuaternion.eulerAngles;
-
-                uObject.transform.localScale = new UnityEngine.Vector3(aScale.X, aScale.Y, aScale.Z);
-                uObject.transform.localPosition = new UnityEngine.Vector3(aTranslation.X, aTranslation.Y, aTranslation.Z);
-                uObject.transform.localRotation = UnityEngine.Quaternion.Euler(aQuaternion.X, aQuaternion.Y, aQuaternion.Z);
+                // Convert Assimp transfrom into Unity transform and set transformation of game object 
+                UnityEngine.Quaternion uQuat = new UnityEngine.Quaternion(aQuat.X, aQuat.Y, aQuat.Z, aQuat.W);
+                var euler = uQuat.eulerAngles;
+                uOb.transform.localScale = new UnityEngine.Vector3(aScale.X, aScale.Y, aScale.Z);
+                uOb.transform.localPosition = new UnityEngine.Vector3(aTranslation.X, aTranslation.Y, aTranslation.Z);
+                uOb.transform.localRotation = UnityEngine.Quaternion.Euler(euler.x, -euler.y, euler.z);
 
                 if (node.HasChildren)
                 {
-                    var countChild = 0;
-                    foreach (var child in node.Children)
+                    foreach (var cn in node.Children)
                     {
-                        var uObjectChild = NodeToGameObject(child);
-                        uObjectChild.transform.SetParent(uObject.transform, false);
-                        Debug.Log("Unity - Parent del objeto child " + countChild + ": " + uObjectChild.transform.parent);
-                        countChild++;
+                        var uObChild = NodeToGameObject(cn);
+                        uObChild.transform.SetParent(uOb.transform, false);
                     }
                 }
 
-                return uObject;
+                return uOb;
             }
 
-            return NodeToGameObject(scene.RootNode);
+            return NodeToGameObject(scene.RootNode); ;
         }
     }
 }

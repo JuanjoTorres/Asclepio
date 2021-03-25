@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using RuntimeMeshImporter;
+using UnityMeshImporter;
 
 public class DemoImporterStl : MonoBehaviour
 {
-    private const string MeshPath = "C:/Users/Juanjo Torres/Documents/repos/unity/Asclepio/Assets/Resources/cube2.stl";
+    private const string MeshPath = "C:/Users/Juanjo Torres/Documents/repos/unity/Asclepio/Assets/Resources/smoothPelvis.stl";
     private GameObject Workspace;
     // Start is called before the first frame update
 
