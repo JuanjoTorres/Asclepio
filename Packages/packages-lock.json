@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.arsenstudio.assimp": {
-      "version": "4.1.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://intelligide.pkgs.visualstudio.com/0435f2bc-ce0a-4490-ac97-883fb250890d/_packaging/stable/npm/registry"
-    },
     "com.unity.ext.nunit": {
       "version": "1.0.6",
       "depth": 1,
