@@ -6,10 +6,13 @@ using UnityEngine.XR;
 public class HandPresence : MonoBehaviour
 {
     private InputDevice targetDevice;
-    private GameObject spawnedController;
-
+    private GameObject spawnedController; // Modelo del controlador que se generara
+    private GameObject spawnedHandModel;  // Modelo de la mano que se generara
+    
     public List<GameObject> controllerPrefabs;                   // Lista de modelos de diferentes controladores
+    public GameObject handModelPrefab;
     public InputDeviceCharacteristics controllerCharacteristics; // Caracteristica del dispositivo
+    public bool showController = false;                          // true = muestra controlador, false = muestra manos
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +40,8 @@ public class HandPresence : MonoBehaviour
                 Debug.LogError("Did not find corresponding controller model - [Changing to default controller model]");
                 spawnedController = Instantiate(controllerPrefabs[0], transform);
             }
+
+            spawnedHandModel = Instantiate(handModelPrefab, transform);
         }
     }
 
@@ -57,5 +62,16 @@ public class HandPresence : MonoBehaviour
         valueStatus = targetDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 primary2DAxisValue);
         if (valueStatus && primary2DAxisValue != Vector2.zero)
             Debug.Log("Moving Primary Touchpad - value: " + primary2DAxisValue);
+
+        if (showController)
+        {
+            spawnedController.SetActive(true);
+            spawnedHandModel.SetActive(false);
+        }
+        else
+        {
+            spawnedController.SetActive(false);
+            spawnedHandModel.SetActive(true);
+        }
     }
 }
