@@ -4242,7 +4242,7 @@ GameObject:
   - component: {fileID: 708498028}
   - component: {fileID: 708498027}
   - component: {fileID: 708498029}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VR Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
