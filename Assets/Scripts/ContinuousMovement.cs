@@ -44,8 +44,6 @@ public class ContinuousMovement : MonoBehaviour
         // Gravity calculations
         bool isGrounded = CheckIfGrounded();
 
-        Debug.Log("Grounded: " + isGrounded);
-
         if (isGrounded)
         {
             fallingSpeed = 0;
@@ -73,9 +71,6 @@ public class ContinuousMovement : MonoBehaviour
         float rayLenght = character.center.y + 0.01f;
         bool hasHit = Physics.SphereCast(rayStart, character.radius, Vector3.down, out RaycastHit hitInfo, rayLenght, groundLayer);
 
-        Debug.Log("RayLength: " + rayLenght);
-        Debug.Log("rayStart: " + rayStart);
-        Debug.Log("Character Center: " + character.center);
         return hasHit;
     }
 }
