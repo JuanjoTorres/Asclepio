@@ -1,0 +1,189 @@
+fileFormatVersion: 2
+guid: 5a50323672e9e354e90009b3304057be
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Counter_MD_01_01
+    100002: Counter_MD_01_02
+    100004: Counter_MD_01_03
+    100006: Counter_MD_01_04
+    100008: CounterBoarder_MD_01_01
+    100010: CounterBoarder_MD_01_02
+    100012: CounterBoarder_MD_01_03
+    100014: CounterHalf_MD_01_01
+    100016: CounterQuarter_MD_01_01
+    100018: CounterRound_MD_01_01
+    100020: //RootNode
+    100022: CounterThreeQuarter_MD_01_01
+    100024: Mid
+    100026: Mid.001
+    100028: Mid.003
+    100030: Mid.004
+    100032: Mid.005
+    100034: Mid.006
+    100036: Mid.007
+    100038: Mid.008
+    400000: Counter_MD_01_01
+    400002: Counter_MD_01_02
+    400004: Counter_MD_01_03
+    400006: Counter_MD_01_04
+    400008: CounterBoarder_MD_01_01
+    400010: CounterBoarder_MD_01_02
+    400012: CounterBoarder_MD_01_03
+    400014: CounterHalf_MD_01_01
+    400016: CounterQuarter_MD_01_01
+    400018: CounterRound_MD_01_01
+    400020: //RootNode
+    400022: CounterThreeQuarter_MD_01_01
+    400024: Mid
+    400026: Mid.001
+    400028: Mid.003
+    400030: Mid.004
+    400032: Mid.005
+    400034: Mid.006
+    400036: Mid.007
+    400038: Mid.008
+    2100000: No Name
+    2300000: Counter_MD_01_01
+    2300002: Counter_MD_01_02
+    2300004: Counter_MD_01_03
+    2300006: Counter_MD_01_04
+    2300008: CounterBoarder_MD_01_01
+    2300010: CounterBoarder_MD_01_02
+    2300012: CounterBoarder_MD_01_03
+    2300014: CounterHalf_MD_01_01
+    2300016: CounterQuarter_MD_01_01
+    2300018: CounterRound_MD_01_01
+    2300020: CounterThreeQuarter_MD_01_01
+    2300022: Mid
+    2300024: Mid.001
+    2300026: Mid.003
+    2300028: Mid.004
+    2300030: Mid.005
+    2300032: Mid.006
+    2300034: Mid.007
+    2300036: Mid.008
+    3300000: Counter_MD_01_01
+    3300002: Counter_MD_01_02
+    3300004: Counter_MD_01_03
+    3300006: Counter_MD_01_04
+    3300008: CounterBoarder_MD_01_01
+    3300010: CounterBoarder_MD_01_02
+    3300012: CounterBoarder_MD_01_03
+    3300014: CounterHalf_MD_01_01
+    3300016: CounterQuarter_MD_01_01
+    3300018: CounterRound_MD_01_01
+    3300020: CounterThreeQuarter_MD_01_01
+    3300022: Mid
+    3300024: Mid.001
+    3300026: Mid.003
+    3300028: Mid.004
+    3300030: Mid.005
+    3300032: Mid.006
+    3300034: Mid.007
+    3300036: Mid.008
+    4300000: Counter_MD_01_01
+    4300002: Mid
+    4300004: Counter_MD_01_03
+    4300006: Mid.005
+    4300008: Counter_MD_01_02
+    4300010: Mid.004
+    4300012: Counter_MD_01_04
+    4300014: Mid.003
+    4300016: CounterBoarder_MD_01_01
+    4300018: CounterBoarder_MD_01_02
+    4300020: CounterRound_MD_01_01
+    4300022: Mid.001
+    4300024: CounterHalf_MD_01_01
+    4300026: Mid.006
+    4300028: CounterQuarter_MD_01_01
+    4300030: Mid.007
+    4300032: CounterThreeQuarter_MD_01_01
+    4300034: Mid.008
+    4300036: CounterBoarder_MD_01_03
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

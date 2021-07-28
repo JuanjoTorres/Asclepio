@@ -1,0 +1,499 @@
+fileFormatVersion: 2
+guid: 218e68caea70abc45803acb387555931
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Back.001
+    100002: BoneDrill_Grip
+    100004: Cap
+    100006: Cap.001
+    100008: Cap.002
+    100010: Cap.003
+    100012: Cap.004
+    100014: Cap.005
+    100016: Cap.006
+    100018: Cap.007
+    100020: Cap.008
+    100022: Cap.009
+    100024: Cap.010
+    100026: Cap.011
+    100028: Chuck
+    100030: Cord
+    100032: Dispenser
+    100034: Dispenser.001
+    100036: Drill Bit
+    100038: Drill Bit Holder
+    100040: Glass
+    100042: Glass Container_MD_01
+    100044: Glass.001
+    100046: Glass.002
+    100048: Glass.003
+    100050: Glass.004
+    100052: Head
+    100054: Item
+    100056: Label
+    100058: Label PB.001
+    100060: Label.001
+    100062: Label.002
+    100064: Label.003
+    100066: Label.004
+    100068: Label.005
+    100070: Label.006
+    100072: Label.007
+    100074: Label.008
+    100076: Label.009
+    100078: Label.010
+    100080: Label.011
+    100082: Liquid_01
+    100084: Liquid_02
+    100086: Liquid_03
+    100088: Liquid_04
+    100090: MedBox_01
+    100092: MedBox_02
+    100094: MedBox_03
+    100096: Motor
+    100098: Phone_MD_01_01
+    100100: PhoneButtonlayout
+    100102: PillBottle_MD_01
+    100104: PillBottle_MD_02
+    100106: PillBottle_MD_03
+    100108: PillBottle_MD_04
+    100110: PillBottle_MD_05
+    100112: //RootNode
+    100114: Reciever
+    100116: Sample Collection Container_MD_01
+    100118: Sample Collection_MD_01
+    100120: Sample Collection_MD_02
+    100122: Sample Collection_MD_03
+    100124: Sample Collection_MD_04
+    100126: Sample Collection_MD_05
+    100128: Sample Collection_MD_06
+    100130: Soap Bottle_MD_01
+    100132: Soap Bottle_MD_02
+    100134: SpCap_01
+    100136: SpCap_02
+    100138: SpCap_03
+    100140: SpCap_04
+    100142: SpJar_MD_01
+    100144: SpJar_MD_02
+    100146: SpJar_MD_03
+    100148: SpJar_MD_04
+    100150: SprayBottle_MD_01
+    100152: Tissue
+    100154: Tissue.001
+    100156: TissueBox_MD_01
+    100158: TissueBox_MD_01.001
+    100160: Trigger
+    400000: Back.001
+    400002: BoneDrill_Grip
+    400004: Cap
+    400006: Cap.001
+    400008: Cap.002
+    400010: Cap.003
+    400012: Cap.004
+    400014: Cap.005
+    400016: Cap.006
+    400018: Cap.007
+    400020: Cap.008
+    400022: Cap.009
+    400024: Cap.010
+    400026: Cap.011
+    400028: Chuck
+    400030: Cord
+    400032: Dispenser
+    400034: Dispenser.001
+    400036: Drill Bit
+    400038: Drill Bit Holder
+    400040: Glass
+    400042: Glass Container_MD_01
+    400044: Glass.001
+    400046: Glass.002
+    400048: Glass.003
+    400050: Glass.004
+    400052: Head
+    400054: Item
+    400056: Label
+    400058: Label PB.001
+    400060: Label.001
+    400062: Label.002
+    400064: Label.003
+    400066: Label.004
+    400068: Label.005
+    400070: Label.006
+    400072: Label.007
+    400074: Label.008
+    400076: Label.009
+    400078: Label.010
+    400080: Label.011
+    400082: Liquid_01
+    400084: Liquid_02
+    400086: Liquid_03
+    400088: Liquid_04
+    400090: MedBox_01
+    400092: MedBox_02
+    400094: MedBox_03
+    400096: Motor
+    400098: Phone_MD_01_01
+    400100: PhoneButtonlayout
+    400102: PillBottle_MD_01
+    400104: PillBottle_MD_02
+    400106: PillBottle_MD_03
+    400108: PillBottle_MD_04
+    400110: PillBottle_MD_05
+    400112: //RootNode
+    400114: Reciever
+    400116: Sample Collection Container_MD_01
+    400118: Sample Collection_MD_01
+    400120: Sample Collection_MD_02
+    400122: Sample Collection_MD_03
+    400124: Sample Collection_MD_04
+    400126: Sample Collection_MD_05
+    400128: Sample Collection_MD_06
+    400130: Soap Bottle_MD_01
+    400132: Soap Bottle_MD_02
+    400134: SpCap_01
+    400136: SpCap_02
+    400138: SpCap_03
+    400140: SpCap_04
+    400142: SpJar_MD_01
+    400144: SpJar_MD_02
+    400146: SpJar_MD_03
+    400148: SpJar_MD_04
+    400150: SprayBottle_MD_01
+    400152: Tissue
+    400154: Tissue.001
+    400156: TissueBox_MD_01
+    400158: TissueBox_MD_01.001
+    400160: Trigger
+    2100000: Bone Drill Body
+    2100002: No Name
+    2100004: Label
+    2100006: soap
+    2100008: Glass
+    2100010: Spray Bottle
+    2300000: Back.001
+    2300002: BoneDrill_Grip
+    2300004: Cap
+    2300006: Cap.001
+    2300008: Cap.002
+    2300010: Cap.003
+    2300012: Cap.004
+    2300014: Cap.005
+    2300016: Cap.006
+    2300018: Cap.007
+    2300020: Cap.008
+    2300022: Cap.009
+    2300024: Cap.010
+    2300026: Cap.011
+    2300028: Chuck
+    2300030: Cord
+    2300032: Dispenser
+    2300034: Dispenser.001
+    2300036: Drill Bit
+    2300038: Drill Bit Holder
+    2300040: Glass
+    2300042: Glass Container_MD_01
+    2300044: Glass.001
+    2300046: Glass.002
+    2300048: Glass.003
+    2300050: Glass.004
+    2300052: Head
+    2300054: Item
+    2300056: Label
+    2300058: Label PB.001
+    2300060: Label.001
+    2300062: Label.002
+    2300064: Label.003
+    2300066: Label.004
+    2300068: Label.005
+    2300070: Label.006
+    2300072: Label.007
+    2300074: Label.008
+    2300076: Label.009
+    2300078: Label.010
+    2300080: Label.011
+    2300082: Liquid_01
+    2300084: Liquid_02
+    2300086: Liquid_03
+    2300088: Liquid_04
+    2300090: MedBox_01
+    2300092: MedBox_02
+    2300094: MedBox_03
+    2300096: Motor
+    2300098: Phone_MD_01_01
+    2300100: PhoneButtonlayout
+    2300102: PillBottle_MD_01
+    2300104: PillBottle_MD_02
+    2300106: PillBottle_MD_03
+    2300108: PillBottle_MD_04
+    2300110: PillBottle_MD_05
+    2300112: Reciever
+    2300114: Sample Collection Container_MD_01
+    2300116: Sample Collection_MD_01
+    2300118: Sample Collection_MD_02
+    2300120: Sample Collection_MD_03
+    2300122: Sample Collection_MD_04
+    2300124: Sample Collection_MD_05
+    2300126: Sample Collection_MD_06
+    2300128: Soap Bottle_MD_01
+    2300130: Soap Bottle_MD_02
+    2300132: SpCap_01
+    2300134: SpCap_02
+    2300136: SpCap_03
+    2300138: SpCap_04
+    2300140: SpJar_MD_01
+    2300142: SpJar_MD_02
+    2300144: SpJar_MD_03
+    2300146: SpJar_MD_04
+    2300148: SprayBottle_MD_01
+    2300150: Tissue
+    2300152: Tissue.001
+    2300154: TissueBox_MD_01
+    2300156: TissueBox_MD_01.001
+    2300158: Trigger
+    3300000: Back.001
+    3300002: BoneDrill_Grip
+    3300004: Cap
+    3300006: Cap.001
+    3300008: Cap.002
+    3300010: Cap.003
+    3300012: Cap.004
+    3300014: Cap.005
+    3300016: Cap.006
+    3300018: Cap.007
+    3300020: Cap.008
+    3300022: Cap.009
+    3300024: Cap.010
+    3300026: Cap.011
+    3300028: Chuck
+    3300030: Cord
+    3300032: Dispenser
+    3300034: Dispenser.001
+    3300036: Drill Bit
+    3300038: Drill Bit Holder
+    3300040: Glass
+    3300042: Glass Container_MD_01
+    3300044: Glass.001
+    3300046: Glass.002
+    3300048: Glass.003
+    3300050: Glass.004
+    3300052: Head
+    3300054: Item
+    3300056: Label
+    3300058: Label PB.001
+    3300060: Label.001
+    3300062: Label.002
+    3300064: Label.003
+    3300066: Label.004
+    3300068: Label.005
+    3300070: Label.006
+    3300072: Label.007
+    3300074: Label.008
+    3300076: Label.009
+    3300078: Label.010
+    3300080: Label.011
+    3300082: Liquid_01
+    3300084: Liquid_02
+    3300086: Liquid_03
+    3300088: Liquid_04
+    3300090: MedBox_01
+    3300092: MedBox_02
+    3300094: MedBox_03
+    3300096: Motor
+    3300098: Phone_MD_01_01
+    3300100: PhoneButtonlayout
+    3300102: PillBottle_MD_01
+    3300104: PillBottle_MD_02
+    3300106: PillBottle_MD_03
+    3300108: PillBottle_MD_04
+    3300110: PillBottle_MD_05
+    3300112: Reciever
+    3300114: Sample Collection Container_MD_01
+    3300116: Sample Collection_MD_01
+    3300118: Sample Collection_MD_02
+    3300120: Sample Collection_MD_03
+    3300122: Sample Collection_MD_04
+    3300124: Sample Collection_MD_05
+    3300126: Sample Collection_MD_06
+    3300128: Soap Bottle_MD_01
+    3300130: Soap Bottle_MD_02
+    3300132: SpCap_01
+    3300134: SpCap_02
+    3300136: SpCap_03
+    3300138: SpCap_04
+    3300140: SpJar_MD_01
+    3300142: SpJar_MD_02
+    3300144: SpJar_MD_03
+    3300146: SpJar_MD_04
+    3300148: SprayBottle_MD_01
+    3300150: Tissue
+    3300152: Tissue.001
+    3300154: TissueBox_MD_01
+    3300156: TissueBox_MD_01.001
+    3300158: Trigger
+    4300000: BoneDrill_Grip
+    4300002: Motor
+    4300004: Back.001
+    4300006: Chuck
+    4300008: Drill Bit Holder
+    4300010: Head
+    4300012: Drill Bit
+    4300014: Trigger
+    4300016: Glass Container_MD_01
+    4300018: Cap
+    4300020: Item
+    4300022: Phone_MD_01_01
+    4300024: Cord
+    4300026: PhoneButtonlayout
+    4300028: Reciever
+    4300030: PillBottle_MD_01
+    4300032: Cap.003
+    4300034: Label
+    4300036: PillBottle_MD_02
+    4300038: Cap.002
+    4300040: Label PB.001
+    4300042: PillBottle_MD_03
+    4300044: Cap.004
+    4300046: Label.001
+    4300048: PillBottle_MD_04
+    4300050: Cap.006
+    4300052: Label.002
+    4300054: PillBottle_MD_05
+    4300056: Cap.005
+    4300058: Label.003
+    4300060: Sample Collection Container_MD_01
+    4300062: Sample Collection_MD_01
+    4300064: Cap.001
+    4300066: Label.004
+    4300068: Sample Collection_MD_02
+    4300070: Cap.007
+    4300072: Label.006
+    4300074: Glass.001
+    4300076: Sample Collection_MD_03
+    4300078: Cap.008
+    4300080: Label.007
+    4300082: Glass.004
+    4300084: Sample Collection_MD_04
+    4300086: Cap.009
+    4300088: Label.008
+    4300090: Glass.003
+    4300092: Sample Collection_MD_05
+    4300094: Cap.010
+    4300096: Label.009
+    4300098: Glass.002
+    4300100: Sample Collection_MD_06
+    4300102: Cap.011
+    4300104: Label.010
+    4300106: Glass
+    4300108: Soap Bottle_MD_01
+    4300110: Dispenser
+    4300112: Label.011
+    4300114: Soap Bottle_MD_02
+    4300116: Dispenser.001
+    4300118: Label.005
+    4300120: SpJar_MD_01
+    4300122: Liquid_01
+    4300124: SpCap_01
+    4300126: SpJar_MD_02
+    4300128: Liquid_02
+    4300130: SpCap_02
+    4300132: SpJar_MD_03
+    4300134: Liquid_03
+    4300136: SpCap_03
+    4300138: SpJar_MD_04
+    4300140: Liquid_04
+    4300142: SpCap_04
+    4300144: SprayBottle_MD_01
+    4300146: TissueBox_MD_01
+    4300148: Tissue
+    4300150: TissueBox_MD_01.001
+    4300152: Tissue.001
+    4300154: MedBox_01
+    4300156: MedBox_02
+    4300158: MedBox_03
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
