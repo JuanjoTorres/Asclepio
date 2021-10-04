@@ -1,0 +1,409 @@
+fileFormatVersion: 2
+guid: c6569002799da4044ba37a78975afe60
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bar
+    100002: Canopy
+    100004: Canopy.001
+    100006: Canopy_MD_01
+    100008: Canopy_MD_02
+    100010: Door
+    100012: Door Frame_MD_02
+    100014: Door.001
+    100016: //RootNode
+    100018: Ext_Floor_01_01
+    100020: Ext_Floor_02_01
+    100022: Ext_MD_01_Edge_01_01
+    100024: Ext_MD_01_Edge_02_01
+    100026: Ext_MD_01_Edge_03_01
+    100028: Ext_MD_01_Pillar_01
+    100030: Ext_MD_01_Wall_02
+    100032: Ext_MD_01_Wall_03
+    100034: Ext_MD_01_Wall_04
+    100036: Ext_MD_02_Corner_03
+    100038: Ext_MD_02_Wall_04
+    100040: Ext_MD_Fence_01_01.L
+    100042: Ext_MD_Fence_01_01.R
+    100044: Ext_MD_Fence_02_01.L
+    100046: Ext_MD_Fence_02_01.R
+    100048: Ext_MD_Fence_03_01.L
+    100050: Ext_MD_Fence_03_01.R
+    100052: Ext_MD_Fence_04_01.L
+    100054: Ext_MD_Fence_04_01.R
+    100056: Glass
+    100058: Glass.001
+    100060: Glass.002
+    100062: Glass.003
+    100064: Glass.004
+    100066: Glass.005
+    100068: Glass.006
+    100070: Glow
+    100072: Handle
+    100074: Handle Plate
+    100076: Handle Plate.001
+    100078: Handle.001
+    100080: Handle.002
+    100082: Int_MD_01_Wall_02
+    100084: Int_MD_01_Wall_03
+    100086: Int_MD_01_Wall_04
+    100088: IntExt_MD_Door_01_01
+    100090: IntExt_MD_Window_01_01
+    100092: IntExt_MD_Window_02_01
+    100094: IntExt_MD_Window_03_01
+    100096: IntExt_MD_Window_04_01.001
+    100098: IntExt_MD_WindowDetail_01_01
+    100100: Lamp_MD
+    100102: Lock
+    100104: Lock.001
+    100106: Moulding_MD_01_01
+    100108: Moulding_MD_02_01
+    100110: Moulding_MD_03_01
+    100112: Pane.L
+    100114: Pane.R
+    100116: Rail_MD_01_01
+    100118: Stair Rail_MD_01_01.L
+    100120: Stair Rail_MD_01_01.R
+    100122: Stair Rail_MD_02_01.L
+    100124: Stair Rail_MD_02_01.R
+    100126: Stairs_MD_01_01
+    400000: Bar
+    400002: Canopy
+    400004: Canopy.001
+    400006: Canopy_MD_01
+    400008: Canopy_MD_02
+    400010: Door
+    400012: Door Frame_MD_02
+    400014: Door.001
+    400016: //RootNode
+    400018: Ext_Floor_01_01
+    400020: Ext_Floor_02_01
+    400022: Ext_MD_01_Edge_01_01
+    400024: Ext_MD_01_Edge_02_01
+    400026: Ext_MD_01_Edge_03_01
+    400028: Ext_MD_01_Pillar_01
+    400030: Ext_MD_01_Wall_02
+    400032: Ext_MD_01_Wall_03
+    400034: Ext_MD_01_Wall_04
+    400036: Ext_MD_02_Corner_03
+    400038: Ext_MD_02_Wall_04
+    400040: Ext_MD_Fence_01_01.L
+    400042: Ext_MD_Fence_01_01.R
+    400044: Ext_MD_Fence_02_01.L
+    400046: Ext_MD_Fence_02_01.R
+    400048: Ext_MD_Fence_03_01.L
+    400050: Ext_MD_Fence_03_01.R
+    400052: Ext_MD_Fence_04_01.L
+    400054: Ext_MD_Fence_04_01.R
+    400056: Glass
+    400058: Glass.001
+    400060: Glass.002
+    400062: Glass.003
+    400064: Glass.004
+    400066: Glass.005
+    400068: Glass.006
+    400070: Glow
+    400072: Handle
+    400074: Handle Plate
+    400076: Handle Plate.001
+    400078: Handle.001
+    400080: Handle.002
+    400082: Int_MD_01_Wall_02
+    400084: Int_MD_01_Wall_03
+    400086: Int_MD_01_Wall_04
+    400088: IntExt_MD_Door_01_01
+    400090: IntExt_MD_Window_01_01
+    400092: IntExt_MD_Window_02_01
+    400094: IntExt_MD_Window_03_01
+    400096: IntExt_MD_Window_04_01.001
+    400098: IntExt_MD_WindowDetail_01_01
+    400100: Lamp_MD
+    400102: Lock
+    400104: Lock.001
+    400106: Moulding_MD_01_01
+    400108: Moulding_MD_02_01
+    400110: Moulding_MD_03_01
+    400112: Pane.L
+    400114: Pane.R
+    400116: Rail_MD_01_01
+    400118: Stair Rail_MD_01_01.L
+    400120: Stair Rail_MD_01_01.R
+    400122: Stair Rail_MD_02_01.L
+    400124: Stair Rail_MD_02_01.R
+    400126: Stairs_MD_01_01
+    2100000: No Name
+    2300000: Bar
+    2300002: Canopy
+    2300004: Canopy.001
+    2300006: Canopy_MD_01
+    2300008: Canopy_MD_02
+    2300010: Door
+    2300012: Door Frame_MD_02
+    2300014: Door.001
+    2300016: Ext_Floor_01_01
+    2300018: Ext_Floor_02_01
+    2300020: Ext_MD_01_Edge_01_01
+    2300022: Ext_MD_01_Edge_02_01
+    2300024: Ext_MD_01_Edge_03_01
+    2300026: Ext_MD_01_Pillar_01
+    2300028: Ext_MD_01_Wall_02
+    2300030: Ext_MD_01_Wall_03
+    2300032: Ext_MD_01_Wall_04
+    2300034: Ext_MD_02_Corner_03
+    2300036: Ext_MD_02_Wall_04
+    2300038: Ext_MD_Fence_01_01.L
+    2300040: Ext_MD_Fence_01_01.R
+    2300042: Ext_MD_Fence_02_01.L
+    2300044: Ext_MD_Fence_02_01.R
+    2300046: Ext_MD_Fence_03_01.L
+    2300048: Ext_MD_Fence_03_01.R
+    2300050: Ext_MD_Fence_04_01.L
+    2300052: Ext_MD_Fence_04_01.R
+    2300054: Glass
+    2300056: Glass.001
+    2300058: Glass.002
+    2300060: Glass.003
+    2300062: Glass.004
+    2300064: Glass.005
+    2300066: Glass.006
+    2300068: Glow
+    2300070: Handle
+    2300072: Handle Plate
+    2300074: Handle Plate.001
+    2300076: Handle.001
+    2300078: Handle.002
+    2300080: Int_MD_01_Wall_02
+    2300082: Int_MD_01_Wall_03
+    2300084: Int_MD_01_Wall_04
+    2300086: IntExt_MD_Door_01_01
+    2300088: IntExt_MD_Window_01_01
+    2300090: IntExt_MD_Window_02_01
+    2300092: IntExt_MD_Window_03_01
+    2300094: IntExt_MD_Window_04_01.001
+    2300096: IntExt_MD_WindowDetail_01_01
+    2300098: Lamp_MD
+    2300100: Lock
+    2300102: Lock.001
+    2300104: Moulding_MD_01_01
+    2300106: Moulding_MD_02_01
+    2300108: Moulding_MD_03_01
+    2300110: Pane.L
+    2300112: Pane.R
+    2300114: Rail_MD_01_01
+    2300116: Stair Rail_MD_01_01.L
+    2300118: Stair Rail_MD_01_01.R
+    2300120: Stair Rail_MD_02_01.L
+    2300122: Stair Rail_MD_02_01.R
+    2300124: Stairs_MD_01_01
+    3300000: Bar
+    3300002: Canopy
+    3300004: Canopy.001
+    3300006: Canopy_MD_01
+    3300008: Canopy_MD_02
+    3300010: Door
+    3300012: Door Frame_MD_02
+    3300014: Door.001
+    3300016: Ext_Floor_01_01
+    3300018: Ext_Floor_02_01
+    3300020: Ext_MD_01_Edge_01_01
+    3300022: Ext_MD_01_Edge_02_01
+    3300024: Ext_MD_01_Edge_03_01
+    3300026: Ext_MD_01_Pillar_01
+    3300028: Ext_MD_01_Wall_02
+    3300030: Ext_MD_01_Wall_03
+    3300032: Ext_MD_01_Wall_04
+    3300034: Ext_MD_02_Corner_03
+    3300036: Ext_MD_02_Wall_04
+    3300038: Ext_MD_Fence_01_01.L
+    3300040: Ext_MD_Fence_01_01.R
+    3300042: Ext_MD_Fence_02_01.L
+    3300044: Ext_MD_Fence_02_01.R
+    3300046: Ext_MD_Fence_03_01.L
+    3300048: Ext_MD_Fence_03_01.R
+    3300050: Ext_MD_Fence_04_01.L
+    3300052: Ext_MD_Fence_04_01.R
+    3300054: Glass
+    3300056: Glass.001
+    3300058: Glass.002
+    3300060: Glass.003
+    3300062: Glass.004
+    3300064: Glass.005
+    3300066: Glass.006
+    3300068: Glow
+    3300070: Handle
+    3300072: Handle Plate
+    3300074: Handle Plate.001
+    3300076: Handle.001
+    3300078: Handle.002
+    3300080: Int_MD_01_Wall_02
+    3300082: Int_MD_01_Wall_03
+    3300084: Int_MD_01_Wall_04
+    3300086: IntExt_MD_Door_01_01
+    3300088: IntExt_MD_Window_01_01
+    3300090: IntExt_MD_Window_02_01
+    3300092: IntExt_MD_Window_03_01
+    3300094: IntExt_MD_Window_04_01.001
+    3300096: IntExt_MD_WindowDetail_01_01
+    3300098: Lamp_MD
+    3300100: Lock
+    3300102: Lock.001
+    3300104: Moulding_MD_01_01
+    3300106: Moulding_MD_02_01
+    3300108: Moulding_MD_03_01
+    3300110: Pane.L
+    3300112: Pane.R
+    3300114: Rail_MD_01_01
+    3300116: Stair Rail_MD_01_01.L
+    3300118: Stair Rail_MD_01_01.R
+    3300120: Stair Rail_MD_02_01.L
+    3300122: Stair Rail_MD_02_01.R
+    3300124: Stairs_MD_01_01
+    4300000: IntExt_MD_Door_01_01
+    4300002: Door.001
+    4300004: Handle
+    4300006: Bar
+    4300008: Glass.002
+    4300010: Glass.001
+    4300012: Ext_MD_02_Wall_04
+    4300014: Ext_Floor_01_01
+    4300016: Ext_Floor_02_01
+    4300018: Canopy_MD_02
+    4300020: Canopy
+    4300022: Canopy_MD_01
+    4300024: Canopy.001
+    4300026: Ext_MD_Fence_02_01.L
+    4300028: Ext_MD_Fence_03_01.R
+    4300030: Ext_MD_Fence_04_01.R
+    4300032: Ext_MD_Fence_01_01.R
+    4300034: IntExt_MD_Window_02_01
+    4300036: Glass.005
+    4300038: IntExt_MD_Window_01_01
+    4300040: Glass.006
+    4300042: IntExt_MD_Window_03_01
+    4300044: Glass
+    4300046: Ext_MD_02_Corner_03
+    4300048: Ext_MD_01_Pillar_01
+    4300050: Ext_MD_01_Wall_02
+    4300052: Int_MD_01_Wall_02
+    4300054: Ext_MD_01_Wall_03
+    4300056: IntExt_MD_Window_04_01.001
+    4300058: Pane.L
+    4300060: Glass.004
+    4300062: Pane.R
+    4300064: Glass.003
+    4300066: Int_MD_01_Wall_03
+    4300068: IntExt_MD_WindowDetail_01_01
+    4300070: Lamp_MD
+    4300072: Glow
+    4300074: Ext_MD_01_Edge_01_01
+    4300076: Ext_MD_01_Edge_03_01
+    4300078: Ext_MD_01_Edge_02_01
+    4300080: Ext_MD_01_Wall_04
+    4300082: Door Frame_MD_02
+    4300084: Door
+    4300086: Handle Plate
+    4300088: Handle.001
+    4300090: Lock.001
+    4300092: Handle Plate.001
+    4300094: Handle.002
+    4300096: Lock
+    4300098: Int_MD_01_Wall_04
+    4300100: Ext_MD_Fence_02_01.R
+    4300102: Ext_MD_Fence_03_01.L
+    4300104: Ext_MD_Fence_01_01.L
+    4300106: Ext_MD_Fence_04_01.L
+    4300108: Stairs_MD_01_01
+    4300110: Stair Rail_MD_01_01.R
+    4300112: Rail_MD_01_01
+    4300114: Moulding_MD_02_01
+    4300116: Stair Rail_MD_02_01.R
+    4300118: Moulding_MD_03_01
+    4300120: Moulding_MD_01_01
+    4300122: Stair Rail_MD_02_01.L
+    4300124: Stair Rail_MD_01_01.L
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

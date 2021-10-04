@@ -7,14 +7,12 @@ namespace Parabox.Stl.Editor
 {
     public class DemoImporterStl : MonoBehaviour
     {
-        private const string MeshPath = "C:/Users/Juanjo Torres/Desktop/pelvis-ascii.stl";
+        private const string MeshPath = "C:/Users/Juanjo Torres/Desktop/pie.stl";
         // private GameObject Workspace;
         // Start is called before the first frame update
 
         private void Awake()
         {
-
-            Debug.Log("Hello!!");
             var name = Path.GetFileNameWithoutExtension(MeshPath);
             print(name);
             var meshes = Importer.Import(MeshPath);

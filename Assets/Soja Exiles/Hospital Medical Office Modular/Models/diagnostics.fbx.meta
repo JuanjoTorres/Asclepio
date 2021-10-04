@@ -1,0 +1,595 @@
+fileFormatVersion: 2
+guid: e8328baf0603fb747b8605e2a1758b2c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Aneroid
+    100002: Aneroid Glass
+    100004: Arm Strap
+    100006: Back
+    100008: Bar.001
+    100010: Blood Pressure
+    100012: box
+    100014: box.001
+    100016: Cabel
+    100018: Cabinet_Drawer_01
+    100020: Cabinet_Drawer_02
+    100022: Cabinet_Kitchen_04
+    100024: Cabinet_Kitchen_Door.L
+    100026: Cabinet_Kitchen_Door.R
+    100028: Cabinet_Kitchen_Drawer.002
+    100030: Cabinet_MD_01_01
+    100032: Cabinet_MD_01_03
+    100034: CabinetOverhead_MD_01_02
+    100036: CabinetSide Table_MD_01_01
+    100038: Cable
+    100040: Chair_MD_01
+    100042: Chair_MD_02
+    100044: Chair_MD_Seat
+    100046: Countertop.003
+    100048: Countertop_Sink
+    100050: //RootNode
+    100052: Dial
+    100054: Diploma
+    100056: Diploma Sheet
+    100058: Door
+    100060: Door.L.003
+    100062: Drain
+    100064: Drawer
+    100066: Drawer.001
+    100068: Examination Table
+    100070: Extender
+    100072: Eye
+    100074: Faucet
+    100076: Feet
+    100078: Feet.001
+    100080: Feet.002
+    100082: Gauge
+    100084: Glass
+    100086: Glass.001
+    100088: Glass.002
+    100090: Handle
+    100092: Handle.000
+    100094: Handle.001
+    100096: Handle.002
+    100098: Handle.003
+    100100: Handle.004
+    100102: Handle.005
+    100104: Handle.006
+    100106: Handle.007
+    100108: Handle.008
+    100110: Height Bar
+    100112: Height Rod
+    100114: Knob.000
+    100116: Knob.004
+    100118: Leg.008
+    100120: Lens
+    100122: Lense.001
+    100124: Meter
+    100126: Mid.001
+    100128: Mid.002
+    100130: Ophthalmoscope
+    100132: Ophthalmoscope Head
+    100134: Paper
+    100136: Paper Bar
+    100138: Pipe
+    100140: Pneumatic Otoscope
+    100142: Pneumatic Otoscope Head
+    100144: Pole
+    100146: Poster_01
+    100148: Pump
+    100150: Rod
+    100152: Scale Base
+    100154: Scale Stand
+    100156: Seat
+    100158: Seat.001
+    100160: Shelf.001
+    100162: Sink
+    100164: specula
+    100166: specula dispenser
+    100168: Stable
+    100170: Stand Bar
+    100172: Step
+    100174: Thermometer
+    100176: Thermometer Base
+    100178: Tip
+    100180: Tip.001
+    100182: Trash
+    100184: Trash Bag
+    100186: Tube
+    100188: Wall Board
+    100190: Wall Transformer
+    100192: Weight Conversion_01
+    100194: Weight Conversion_02
+    100196: Weight Conversion_03
+    100198: Weight Conversion_04
+    100200: Wheels
+    400000: Aneroid
+    400002: Aneroid Glass
+    400004: Arm Strap
+    400006: Back
+    400008: Bar.001
+    400010: Blood Pressure
+    400012: box
+    400014: box.001
+    400016: Cabel
+    400018: Cabinet_Drawer_01
+    400020: Cabinet_Drawer_02
+    400022: Cabinet_Kitchen_04
+    400024: Cabinet_Kitchen_Door.L
+    400026: Cabinet_Kitchen_Door.R
+    400028: Cabinet_Kitchen_Drawer.002
+    400030: Cabinet_MD_01_01
+    400032: Cabinet_MD_01_03
+    400034: CabinetOverhead_MD_01_02
+    400036: CabinetSide Table_MD_01_01
+    400038: Cable
+    400040: Chair_MD_01
+    400042: Chair_MD_02
+    400044: Chair_MD_Seat
+    400046: Countertop.003
+    400048: Countertop_Sink
+    400050: //RootNode
+    400052: Dial
+    400054: Diploma
+    400056: Diploma Sheet
+    400058: Door
+    400060: Door.L.003
+    400062: Drain
+    400064: Drawer
+    400066: Drawer.001
+    400068: Examination Table
+    400070: Extender
+    400072: Eye
+    400074: Faucet
+    400076: Feet
+    400078: Feet.001
+    400080: Feet.002
+    400082: Gauge
+    400084: Glass
+    400086: Glass.001
+    400088: Glass.002
+    400090: Handle
+    400092: Handle.000
+    400094: Handle.001
+    400096: Handle.002
+    400098: Handle.003
+    400100: Handle.004
+    400102: Handle.005
+    400104: Handle.006
+    400106: Handle.007
+    400108: Handle.008
+    400110: Height Bar
+    400112: Height Rod
+    400114: Knob.000
+    400116: Knob.004
+    400118: Leg.008
+    400120: Lens
+    400122: Lense.001
+    400124: Meter
+    400126: Mid.001
+    400128: Mid.002
+    400130: Ophthalmoscope
+    400132: Ophthalmoscope Head
+    400134: Paper
+    400136: Paper Bar
+    400138: Pipe
+    400140: Pneumatic Otoscope
+    400142: Pneumatic Otoscope Head
+    400144: Pole
+    400146: Poster_01
+    400148: Pump
+    400150: Rod
+    400152: Scale Base
+    400154: Scale Stand
+    400156: Seat
+    400158: Seat.001
+    400160: Shelf.001
+    400162: Sink
+    400164: specula
+    400166: specula dispenser
+    400168: Stable
+    400170: Stand Bar
+    400172: Step
+    400174: Thermometer
+    400176: Thermometer Base
+    400178: Tip
+    400180: Tip.001
+    400182: Trash
+    400184: Trash Bag
+    400186: Tube
+    400188: Wall Board
+    400190: Wall Transformer
+    400192: Weight Conversion_01
+    400194: Weight Conversion_02
+    400196: Weight Conversion_03
+    400198: Weight Conversion_04
+    400200: Wheels
+    2100000: No Name
+    2100002: Poster
+    2300000: Aneroid
+    2300002: Aneroid Glass
+    2300004: Arm Strap
+    2300006: Back
+    2300008: Bar.001
+    2300010: Blood Pressure
+    2300012: box
+    2300014: box.001
+    2300016: Cabel
+    2300018: Cabinet_Drawer_01
+    2300020: Cabinet_Drawer_02
+    2300022: Cabinet_Kitchen_04
+    2300024: Cabinet_Kitchen_Door.L
+    2300026: Cabinet_Kitchen_Door.R
+    2300028: Cabinet_Kitchen_Drawer.002
+    2300030: Cabinet_MD_01_01
+    2300032: Cabinet_MD_01_03
+    2300034: CabinetOverhead_MD_01_02
+    2300036: CabinetSide Table_MD_01_01
+    2300038: Cable
+    2300040: Chair_MD_01
+    2300042: Chair_MD_02
+    2300044: Chair_MD_Seat
+    2300046: Countertop.003
+    2300048: Countertop_Sink
+    2300050: Dial
+    2300052: Diploma
+    2300054: Diploma Sheet
+    2300056: Door
+    2300058: Door.L.003
+    2300060: Drain
+    2300062: Drawer
+    2300064: Drawer.001
+    2300066: Examination Table
+    2300068: Extender
+    2300070: Eye
+    2300072: Faucet
+    2300074: Feet
+    2300076: Feet.001
+    2300078: Feet.002
+    2300080: Gauge
+    2300082: Glass
+    2300084: Glass.001
+    2300086: Glass.002
+    2300088: Handle
+    2300090: Handle.000
+    2300092: Handle.001
+    2300094: Handle.002
+    2300096: Handle.003
+    2300098: Handle.004
+    2300100: Handle.005
+    2300102: Handle.006
+    2300104: Handle.007
+    2300106: Handle.008
+    2300108: Height Bar
+    2300110: Height Rod
+    2300112: Knob.000
+    2300114: Knob.004
+    2300116: Leg.008
+    2300118: Lens
+    2300120: Lense.001
+    2300122: Meter
+    2300124: Mid.001
+    2300126: Mid.002
+    2300128: Ophthalmoscope
+    2300130: Ophthalmoscope Head
+    2300132: Paper
+    2300134: Paper Bar
+    2300136: Pipe
+    2300138: Pneumatic Otoscope
+    2300140: Pneumatic Otoscope Head
+    2300142: Pole
+    2300144: Poster_01
+    2300146: Pump
+    2300148: Rod
+    2300150: Scale Base
+    2300152: Scale Stand
+    2300154: Seat
+    2300156: Seat.001
+    2300158: Shelf.001
+    2300160: Sink
+    2300162: specula
+    2300164: specula dispenser
+    2300166: Stable
+    2300168: Stand Bar
+    2300170: Step
+    2300172: Thermometer
+    2300174: Thermometer Base
+    2300176: Tip
+    2300178: Tip.001
+    2300180: Trash
+    2300182: Trash Bag
+    2300184: Tube
+    2300186: Wall Board
+    2300188: Wall Transformer
+    2300190: Weight Conversion_01
+    2300192: Weight Conversion_02
+    2300194: Weight Conversion_03
+    2300196: Weight Conversion_04
+    2300198: Wheels
+    3300000: Aneroid
+    3300002: Aneroid Glass
+    3300004: Arm Strap
+    3300006: Back
+    3300008: Bar.001
+    3300010: Blood Pressure
+    3300012: box
+    3300014: box.001
+    3300016: Cabel
+    3300018: Cabinet_Drawer_01
+    3300020: Cabinet_Drawer_02
+    3300022: Cabinet_Kitchen_04
+    3300024: Cabinet_Kitchen_Door.L
+    3300026: Cabinet_Kitchen_Door.R
+    3300028: Cabinet_Kitchen_Drawer.002
+    3300030: Cabinet_MD_01_01
+    3300032: Cabinet_MD_01_03
+    3300034: CabinetOverhead_MD_01_02
+    3300036: CabinetSide Table_MD_01_01
+    3300038: Cable
+    3300040: Chair_MD_01
+    3300042: Chair_MD_02
+    3300044: Chair_MD_Seat
+    3300046: Countertop.003
+    3300048: Countertop_Sink
+    3300050: Dial
+    3300052: Diploma
+    3300054: Diploma Sheet
+    3300056: Door
+    3300058: Door.L.003
+    3300060: Drain
+    3300062: Drawer
+    3300064: Drawer.001
+    3300066: Examination Table
+    3300068: Extender
+    3300070: Eye
+    3300072: Faucet
+    3300074: Feet
+    3300076: Feet.001
+    3300078: Feet.002
+    3300080: Gauge
+    3300082: Glass
+    3300084: Glass.001
+    3300086: Glass.002
+    3300088: Handle
+    3300090: Handle.000
+    3300092: Handle.001
+    3300094: Handle.002
+    3300096: Handle.003
+    3300098: Handle.004
+    3300100: Handle.005
+    3300102: Handle.006
+    3300104: Handle.007
+    3300106: Handle.008
+    3300108: Height Bar
+    3300110: Height Rod
+    3300112: Knob.000
+    3300114: Knob.004
+    3300116: Leg.008
+    3300118: Lens
+    3300120: Lense.001
+    3300122: Meter
+    3300124: Mid.001
+    3300126: Mid.002
+    3300128: Ophthalmoscope
+    3300130: Ophthalmoscope Head
+    3300132: Paper
+    3300134: Paper Bar
+    3300136: Pipe
+    3300138: Pneumatic Otoscope
+    3300140: Pneumatic Otoscope Head
+    3300142: Pole
+    3300144: Poster_01
+    3300146: Pump
+    3300148: Rod
+    3300150: Scale Base
+    3300152: Scale Stand
+    3300154: Seat
+    3300156: Seat.001
+    3300158: Shelf.001
+    3300160: Sink
+    3300162: specula
+    3300164: specula dispenser
+    3300166: Stable
+    3300168: Stand Bar
+    3300170: Step
+    3300172: Thermometer
+    3300174: Thermometer Base
+    3300176: Tip
+    3300178: Tip.001
+    3300180: Trash
+    3300182: Trash Bag
+    3300184: Tube
+    3300186: Wall Board
+    3300188: Wall Transformer
+    3300190: Weight Conversion_01
+    3300192: Weight Conversion_02
+    3300194: Weight Conversion_03
+    3300196: Weight Conversion_04
+    3300198: Wheels
+    4300000: Cabinet_Kitchen_Drawer.002
+    4300002: Handle.004
+    4300004: Cabinet_MD_01_01
+    4300006: Cabinet_Drawer_01
+    4300008: Handle.002
+    4300010: Cabinet_Drawer_02
+    4300012: Handle.003
+    4300014: Cabinet_Kitchen_04
+    4300016: Countertop.003
+    4300018: Cabinet_MD_01_03
+    4300020: Cabinet_Kitchen_Door.L
+    4300022: Handle.001
+    4300024: Cabinet_Kitchen_Door.R
+    4300026: Handle.000
+    4300028: Countertop_Sink
+    4300030: Drain
+    4300032: Faucet
+    4300034: Knob.000
+    4300036: Knob.004
+    4300038: Pipe
+    4300040: Sink
+    4300042: CabinetOverhead_MD_01_02
+    4300044: Door.L.003
+    4300046: Handle.006
+    4300048: Shelf.001
+    4300050: CabinetSide Table_MD_01_01
+    4300052: Leg.008
+    4300054: Chair_MD_01
+    4300056: Chair_MD_Seat
+    4300058: Chair_MD_02
+    4300060: Feet.001
+    4300062: Seat
+    4300064: Pole
+    4300066: Examination Table
+    4300068: Back
+    4300070: Paper Bar
+    4300072: Paper
+    4300074: Stable
+    4300076: Door
+    4300078: Handle.008
+    4300080: Drawer
+    4300082: Handle.007
+    4300084: Drawer.001
+    4300086: Handle
+    4300088: Extender
+    4300090: Seat.001
+    4300092: Stand Bar
+    4300094: Step
+    4300096: Feet
+    4300098: Handle.005
+    4300100: Poster_01
+    4300102: Scale Base
+    4300104: Feet.002
+    4300106: Height Bar
+    4300108: Height Rod
+    4300110: Meter
+    4300112: Rod
+    4300114: Weight Conversion_01
+    4300116: Weight Conversion_02
+    4300118: Weight Conversion_03
+    4300120: Weight Conversion_04
+    4300122: Scale Stand
+    4300124: Wheels
+    4300126: Trash
+    4300128: Trash Bag
+    4300130: Wall Board
+    4300132: Blood Pressure
+    4300134: Aneroid
+    4300136: Gauge
+    4300138: Cable
+    4300140: Aneroid Glass
+    4300142: Arm Strap
+    4300144: Tube
+    4300146: Bar.001
+    4300148: Pump
+    4300150: specula dispenser
+    4300152: specula
+    4300154: Tip.001
+    4300156: Thermometer Base
+    4300158: box
+    4300160: box.001
+    4300162: Thermometer
+    4300164: Cabel
+    4300166: Wall Transformer
+    4300168: Ophthalmoscope
+    4300170: Mid.002
+    4300172: Ophthalmoscope Head
+    4300174: Eye
+    4300176: Lens
+    4300178: Glass.001
+    4300180: Pneumatic Otoscope
+    4300182: Mid.001
+    4300184: Pneumatic Otoscope Head
+    4300186: Dial
+    4300188: Lense.001
+    4300190: Glass.002
+    4300192: Tip
+    4300194: Diploma
+    4300196: Diploma Sheet
+    4300198: Glass
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
