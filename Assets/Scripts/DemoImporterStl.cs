@@ -1,21 +1,31 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+
+using Debug = System.Diagnostics.Debug;
 
 namespace Parabox.Stl.Editor
 {
     public class DemoImporterStl : MonoBehaviour
     {
-        private const string MeshPath = "C:/Users/Juanjo Torres/Desktop/pie.stl";
+        private List<string> ListMeshPath =  new List<string>() { "C:/Users/Juanjo Torres/Desktop/pie.stl", "C:/Users/Juanjo Torres/Desktop/foot.stl" };
+        
         // private GameObject Workspace;
         // Start is called before the first frame update
-
         private void Awake()
         {
-            var name = Path.GetFileNameWithoutExtension(MeshPath);
-            print(name);
-            var meshes = Importer.Import(MeshPath);
+            foreach (string meshPath in ListMeshPath)
+            {
+                var name = Path.GetFileNameWithoutExtension(meshPath);
+                Debug.WriteLine("Importando STL {1}...", name);
+                ProcessSTL(meshPath);
+            }
+        }
+
+        void ProcessSTL(string meshPath)
+        {
+            var meshes = Importer.Import(meshPath);
 
             if (meshes.Length < 1)
                 return;
@@ -56,12 +66,6 @@ namespace Parabox.Stl.Editor
                 AssetDatabase.AddObjectToAsset(parent, parent.name);
                 AssetDatabase.SetMainObject(parent, parent.name);
             }
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
 
     }
