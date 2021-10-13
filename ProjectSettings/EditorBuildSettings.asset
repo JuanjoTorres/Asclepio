@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene.unity
     guid: e62e57f408811534d992507568a001b8
+  - enabled: 1
+    path: Assets/Scenes/Surgery.unity
+    guid: 3d2f41077b031714eb6adea2cc43f4a3
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b965e0a35f3ff654f933013ce3b78db2,
       type: 2}

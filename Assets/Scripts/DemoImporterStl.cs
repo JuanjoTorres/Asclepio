@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using UnityEditor;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-
+using UnityEditor;
+using UnityEngine;
 using Debug = System.Diagnostics.Debug;
 
 namespace Parabox.Stl.Editor
@@ -30,7 +29,7 @@ namespace Parabox.Stl.Editor
             string meshPath = "C:/Users/Juanjo Torres/Desktop/tfg_sources/prove_foot2.stl";
             var name = Path.GetFileNameWithoutExtension(meshPath);
             print("Importando STL " + name + "...");
-            ProcessSTL(meshPath);
+            // ProcessSTL(meshPath);
         }
 
         void ProcessSTL(string meshPath)
