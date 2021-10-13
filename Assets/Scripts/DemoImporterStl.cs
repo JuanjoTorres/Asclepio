@@ -1,27 +1,49 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+
+using Debug = System.Diagnostics.Debug;
 
 namespace Parabox.Stl.Editor
 {
     public class DemoImporterStl : MonoBehaviour
     {
-        private const string MeshPath = "C:/Users/Juanjo Torres/Desktop/pie.stl";
-        // private GameObject Workspace;
-        // Start is called before the first frame update
+        private List<string> listMeshPath =  new List<string>() { "C:/Users/Juanjo Torres/Desktop/tfg_sources/prove_foot2.stl", "C:/Users/Juanjo Torres/Desktop/tfg_sources/foot_model.stl" };
+        private GameObject[] respawns;
 
+
+        private void Start()
+        {
+            if (respawns == null)
+                respawns = GameObject.FindGameObjectsWithTag("Respawn");
+        }
+        // Start is called before the first frame update
         private void Awake()
         {
-            var name = Path.GetFileNameWithoutExtension(MeshPath);
-            print(name);
-            var meshes = Importer.Import(MeshPath);
+            //foreach (string meshPath in ListMeshPath)
+            //{
+            //    var name = Path.GetFileNameWithoutExtension(meshPath);
+            //    print("Importando STL " + name + "...");
+            //    ProcessSTL(meshPath);
+            //}
+            string meshPath = "C:/Users/Juanjo Torres/Desktop/tfg_sources/prove_foot2.stl";
+            var name = Path.GetFileNameWithoutExtension(meshPath);
+            print("Importando STL " + name + "...");
+            ProcessSTL(meshPath);
+        }
+
+        void ProcessSTL(string meshPath)
+        {
+            var meshes = Importer.Import(meshPath);
+            string name = Path.GetFileNameWithoutExtension(meshPath);
 
             if (meshes.Length < 1)
                 return;
 
             if (meshes.Length < 2)
             {
+                print("Enter because have one mesh");
                 var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
                 Object.DestroyImmediate(go.GetComponent<BoxCollider>());
@@ -36,32 +58,36 @@ namespace Parabox.Stl.Editor
             }
             else
             {
-                var parent = new GameObject();
-                parent.name = name;
+                print("Enter because have two meshes");
+                int meshCount = 0;
+                GameObject asset = new GameObject();
+                asset.name = name;
 
-                for (int i = 0, c = meshes.Length; i < c; i++)
+                foreach (Mesh mesh in meshes)
                 {
-                    var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    Object.DestroyImmediate(go.GetComponent<BoxCollider>());
-                    go.transform.SetParent(parent.transform, false);
-                    go.name = name + "(" + i + ")";
+                    GameObject objectChild = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    Object.DestroyImmediate(objectChild.GetComponent<BoxCollider>());
+                    objectChild.transform.SetParent(asset.transform, false);
+                    objectChild.name = name + "(" + meshCount + ")";
 
-                    var mesh = meshes[i];
-                    mesh.name = "Mesh-" + name + "(" + i + ")";
-                    go.GetComponent<MeshFilter>().sharedMesh = mesh;
+                    mesh.name = "Mesh-" + name + "(" + meshCount + ")";
+                    objectChild.GetComponent<MeshFilter>().sharedMesh = mesh;
 
-                    AssetDatabase.AddObjectToAsset(mesh, mesh.name);
+                    AssetDatabase.AddObjectToAsset(mesh, asset.name);
+                    meshCount++;
                 }
 
-                AssetDatabase.AddObjectToAsset(parent, parent.name);
-                AssetDatabase.SetMainObject(parent, parent.name);
+                asset.AddComponent<BoxCollider>();
+                asset.AddComponent<Rigidbody>();
+                asset.transform.Translate(new Vector3(0, 10, 0), Space.World);
+                string localPath = "Assets/Import/" + asset.name + ".prefab";
+                localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
+                PrefabUtility.SaveAsPrefabAsset(asset, localPath);
+
+                Instantiate(asset, respawns[0].transform.position, respawns[0].transform.rotation);
+                //AssetDatabase.AddObjectToAsset(parent, parent.name);
+                //AssetDatabase.SetMainObject(parent, parent.name);
             }
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
 
     }
