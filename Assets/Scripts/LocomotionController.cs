@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class LocomotionController : MonoBehaviour
@@ -33,9 +31,9 @@ public class LocomotionController : MonoBehaviour
     // Verificar si se ha activado el boton
     public bool CheckIfActivated(XRController controller)
     {
-        InputHelpers.IsPressed(controller.inputDevice, 
-            teleportActivationButton, 
-            out bool isActivated, 
+        InputHelpers.IsPressed(controller.inputDevice,
+            teleportActivationButton,
+            out bool isActivated,
             activationThreshold);
 
         return isActivated;
