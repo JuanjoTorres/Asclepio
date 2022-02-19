@@ -16,7 +16,7 @@ class ImporterManager : MonoBehaviour
             respawns = GameObject.FindGameObjectsWithTag("Respawn");
 
         string meshPath = "C:/Users/Juanjo Torres/Desktop/tfg_sources/bone1.stl";
-        ProcessSTL(meshPath);
+        // ProcessSTL(meshPath);
     }
 
     void ProcessSTL(string meshPath)
