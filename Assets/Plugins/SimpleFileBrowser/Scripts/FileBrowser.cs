@@ -335,6 +335,14 @@ namespace SimpleFileBrowser
 				if( !m_instance )
 				{
 					m_instance = Instantiate( Resources.Load<GameObject>( "SimpleFileBrowserCanvas" ) ).GetComponent<FileBrowser>();
+
+					// code changed from original
+					m_instance.gameObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+					m_instance.gameObject.transform.position = new Vector3(-4, 3, 4);
+					m_instance.gameObject.transform.rotation = Quaternion.Euler(30, -90, 0);
+					m_instance.gameObject.transform.localScale = new Vector3(0.0265f, 0.0265f, 0.0265f);
+					// end code changed
+
 					DontDestroyOnLoad( m_instance.gameObject );
 					m_instance.gameObject.SetActive( false );
 				}

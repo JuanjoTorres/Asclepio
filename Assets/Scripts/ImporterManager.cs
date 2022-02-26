@@ -7,8 +7,9 @@ class ImporterManager : MonoBehaviour
 {
     private GameObject[] respawns;
 
-    [Header("Spawn Settings")]
+    [Header("Model Settings")]
     [SerializeField] Transform spawnPointer;
+    [SerializeField] Material ModelMaterial;
 
     private void Awake()
     {
@@ -16,7 +17,7 @@ class ImporterManager : MonoBehaviour
             respawns = GameObject.FindGameObjectsWithTag("Respawn");
 
         string meshPath = "C:/Users/Juanjo Torres/Desktop/tfg_sources/bone1.stl";
-        // ProcessSTL(meshPath);
+        ProcessSTL(meshPath);
     }
 
     void ProcessSTL(string meshPath)
@@ -52,11 +53,13 @@ class ImporterManager : MonoBehaviour
                 meshCount++;
             }
 
+            // Add components
             asset.AddComponent<BoxCollider>();
             asset.AddComponent<Rigidbody>();
             asset.AddComponent<XROffsetGrabInteractable>();
+            asset.AddComponent<Paintable>();
 
-            asset.layer = 8;
+            asset.layer = 8; // Layer Grab
 
             Debug.Log($"New prefab \"{prefabName}\" imported in \"{localPath}\"");
             PrefabUtility.SaveAsPrefabAsset(asset, localPath);
