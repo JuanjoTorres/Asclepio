@@ -1,4 +1,5 @@
 ﻿using SimpleFileBrowser;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -7,21 +8,32 @@ using UnityEngine.UI;
 
 public class FileManager : MonoBehaviour
 {
+    private const float INTENSITY_MAX = 300f;
+    private const float INTENSITY_MIN = 0f;
 
     string inputPath;
     string outputPath;
     string modelPath;
 
-    public Text text;
-    bool sceneIsLoaded;
+    [Header("Lists and Dropdowns")]
+    public Dropdown ModelsCollection;
 
-    Dropdown dropdown;
-    InputField modelName;
+    [Header("Buttons")]
+    public Button QuitButton;
+    public Button SearchButton;
+    public Button LoadButton;
+    public Button CloseButton;
 
-    private void Start()
+    [Header("Another Inputs")]
+    public Toggle ExplorationModeToggle;
+    public Toggle LightsToggle;
+    public Slider LampLightSlider;
+
+    // InputField modelName;
+
+    private void Awake()
     {
-        dropdown = GameObject.Find("Dropdown").GetComponent<Dropdown>();
-        modelName = GameObject.Find("Model Name Field").GetComponent<InputField>();
+        // modelName = GameObject.Find("Model Name Field").GetComponent<InputField>();
 
         ConfigureListeners();
         UpdateDropdown();
@@ -37,7 +49,7 @@ public class FileManager : MonoBehaviour
         FileBrowser.SetExcludedExtensions(".lnk", ".tmp", ".zip", ".rar", ".exe");
         FileBrowser.AddQuickLink("Users", "C:\\Users", null);
 
-        // StartCoroutine(ShowLoadDialogCoroutine(value));
+        StartCoroutine(ShowLoadDialogCoroutine(value));
     }
 
     private IEnumerator ShowLoadDialogCoroutine(bool value)
@@ -61,11 +73,8 @@ public class FileManager : MonoBehaviour
             {
                 if (value)
                 {
-                    inputPath = FileBrowser.Result[i];
-
                     // Show in screen
-                    Text pathText = GameObject.Find("Path Text").GetComponent<Text>();
-                    pathText.text = inputPath;
+                    Debug.Log(FileBrowser.Result[i]);
                 }
                 else
                 {
@@ -100,7 +109,7 @@ public class FileManager : MonoBehaviour
 
     private void UpdateDropdown()
     {
-        dropdown = GameObject.Find("Dropdown").GetComponent<Dropdown>();
+        ModelsCollection = GameObject.Find("Dropdown").GetComponent<Dropdown>();
 
         // Create a List of new Dropdown options
         List<string> dropdownOptions = new List<string>();
@@ -115,33 +124,85 @@ public class FileManager : MonoBehaviour
         }
 
         // Clear dropdown
-        for (int x = 0; x < dropdown.options.Count; x++)
+        for (int x = 0; x < ModelsCollection.options.Count; x++)
         {
-            dropdown.options.RemoveAt(x);
+            ModelsCollection.options.RemoveAt(x);
         }
 
         // Load into dropdown
-        dropdown.AddOptions(dropdownOptions);
+        ModelsCollection.AddOptions(dropdownOptions);
     }
 
     private void ConfigureListeners()
     {
-        Button searchButton = GameObject.Find("Search Button").GetComponent<Button>();
-        searchButton.onClick.AddListener(delegate { OpenFileChooser(true); });
+        SearchButton.onClick.AddListener(delegate {
+            OpenFileChooser(true);
+        });
+        CloseButton.onClick.AddListener(delegate {
+            enabled = true;
+        });
+        SearchButton.onClick.AddListener(delegate {
+            OpenFileChooser(true);
+        });
+        QuitButton.onClick.AddListener(delegate {
+            UnityEditor.EditorApplication.isPlaying = false;
+        });
+        ExplorationModeToggle.onValueChanged.AddListener(delegate {
+            EnableExplorationMode(ExplorationModeToggle.isOn);
+        });
+        LightsToggle.onValueChanged.AddListener(delegate {
+            EnableLightsRoom(LightsToggle.isOn);
+        });
+        LampLightSlider.onValueChanged.AddListener(delegate {
+            ChangeSpotlightsIntesity(LampLightSlider.value);
+        });
+        // Button importButton = GameObject.Find("Import Button").GetComponent<Button>();
+        // importButton.onClick.AddListener(delegate { ImportModel(); });
 
-        Button importButton = GameObject.Find("Import Button").GetComponent<Button>();
-        importButton.onClick.AddListener(delegate { ImportModel(); });
 
-        Button closeButton = GameObject.Find("Close Button").GetComponent<Button>();
-        closeButton.onClick.AddListener(delegate { Application.Quit(); });
 
-        Button loadButton = GameObject.Find("Load Model").GetComponent<Button>();
+        Button loadButton = GameObject.Find("Load Model Button").GetComponent<Button>();
         loadButton.onClick.AddListener(delegate { LoadModel(); });
+    }
+
+    private void ChangeSpotlightsIntesity(float value)
+    {
+        var spotLights = GameObject.FindGameObjectsWithTag("Spot");
+        Debug.Log(value);
+
+        if (value > INTENSITY_MAX) value = INTENSITY_MAX;
+        if (value < INTENSITY_MIN) value = INTENSITY_MIN;
+
+        foreach (var spot in spotLights)
+        {
+            spot.GetComponent<Light>().intensity = value;
+        }
+    }
+
+    private void EnableExplorationMode(bool enabled)
+    {
+        var target = GameObject.FindGameObjectWithTag("Target");
+
+        if (target != null)
+        {
+            var physics = target.GetComponent<Rigidbody>();
+            physics.isKinematic = enabled;
+            physics.useGravity = !enabled;
+        }
+    }
+
+    private void EnableLightsRoom(bool enabled)
+    {
+        GameObject[] lights = GameObject.FindGameObjectsWithTag("Lights");
+        foreach (var light in lights)
+        {
+            light.gameObject.SetActive(enabled);
+        }
     }
 
     private void LoadModel()
     {
-        modelPath = @"Assets\Imports\" + dropdown.options[dropdown.value].text;
+        modelPath = @"Assets\Imports\" + ModelsCollection.options[ModelsCollection.value].text;
 
     }
 
