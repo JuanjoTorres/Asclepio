@@ -1,5 +1,5 @@
-﻿using SimpleFileBrowser;
-using System;
+﻿using ImporterUtils;
+using SimpleFileBrowser;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -8,12 +8,11 @@ using UnityEngine.UI;
 
 public class FileManager : MonoBehaviour
 {
-    private const float INTENSITY_MAX = 300f;
-    private const float INTENSITY_MIN = 0f;
+    private const float LAMP_INTENSITY_MAX = 300f;
 
-    string inputPath;
     string outputPath;
-    string modelPath;
+    string sourcePath;
+    string destinationPath;
 
     [Header("Lists and Dropdowns")]
     public Dropdown ModelsCollection;
@@ -27,6 +26,7 @@ public class FileManager : MonoBehaviour
     [Header("Another Inputs")]
     public Toggle ExplorationModeToggle;
     public Toggle LightsToggle;
+    public Toggle LampsToggle;
     public Slider LampLightSlider;
 
     // InputField modelName;
@@ -50,6 +50,8 @@ public class FileManager : MonoBehaviour
         FileBrowser.AddQuickLink("Users", "C:\\Users", null);
 
         StartCoroutine(ShowLoadDialogCoroutine(value));
+        // ImportModel(); LoadModel
+
     }
 
     private IEnumerator ShowLoadDialogCoroutine(bool value)
@@ -60,7 +62,7 @@ public class FileManager : MonoBehaviour
             null,                                   // Initial path: default (Documents)
             null,                                   // Initial filename: empty
             "Load Files and Folders",
-            "Load Model");                          // Submit Button Title
+            "Import Model");                        // Submit Button Title
 
         // Dialog is closed
         // Print whether the user has selected some files/folders or cancelled the operation (FileBrowser.Success)
@@ -87,107 +89,121 @@ public class FileManager : MonoBehaviour
             byte[] bytes = FileBrowserHelpers.ReadBytesFromFile(FileBrowser.Result[0]);
 
             // Or, copy the first file to persistentDataPath
-            string destinationPath = Path.Combine(Application.persistentDataPath, FileBrowserHelpers.GetFilename(FileBrowser.Result[0]));
-            FileBrowserHelpers.CopyFile(FileBrowser.Result[0], destinationPath);
+            sourcePath = Path.Combine(Application.persistentDataPath, FileBrowserHelpers.GetFilename(FileBrowser.Result[0]));
+            Debug.Log("Source path: " + sourcePath);
+            FileBrowserHelpers.CopyFile(FileBrowser.Result[0], sourcePath);
+
+            StartCoroutine(ImportModel());
         }
     }
 
-    private void ImportModel()
+    private IEnumerator ImportModel()
     {
-        // Obtener datos de los elementos de la interfaz gráfica. 
-        // float iso_value = GameObject.Find("iso_slider").GetComponent<Slider>().value;
-        // float mesh_reduction = GameObject.Find("mesh_slider").GetComponent<Slider>().value;
-        // float filter_value = GameObject.Find("filter_slider").GetComponent<Slider>().value;
-
-        // bool smoothed = GameObject.Find("smoothed_toggle").GetComponent<Toggle>().isOn;
-
         // Calling STL Importer 
-        // ProcessSTL("C:/Users/Juanjo Torres/Desktop/tfg_sources/bone1.stl");
-        System.Threading.Thread.Sleep(15000);
-        UpdateDropdown();
+        if (!string.IsNullOrEmpty(sourcePath))
+        {
+            ImporterManager.ProcessSTL(sourcePath);
+            UpdateDropdown();
+        }
+
+        yield return null;
     }
 
     private void UpdateDropdown()
     {
-        ModelsCollection = GameObject.Find("Dropdown").GetComponent<Dropdown>();
-
         // Create a List of new Dropdown options
         List<string> dropdownOptions = new List<string>();
 
-        DirectoryInfo directory = new DirectoryInfo(@"Assets\Imports\");
-        FileInfo[] Files = directory.GetFiles("*.stl"); // Getting obj files
+        DirectoryInfo directory = new DirectoryInfo(@"Assets\Resources");
+        FileInfo[] files = directory.GetFiles("*.prefab");
 
-        foreach (FileInfo file in Files)
+        foreach (FileInfo file in files)
         {
             // Create list
             dropdownOptions.Add(file.Name);
+            Debug.Log(file.Name);
         }
 
         // Clear dropdown
-        for (int x = 0; x < ModelsCollection.options.Count; x++)
+        int modelsCount = ModelsCollection.options.Count;
+
+        for (int x = 0; x < modelsCount; x++)
         {
-            ModelsCollection.options.RemoveAt(x);
+            ModelsCollection.options.RemoveAt(0);
         }
+
+        Debug.Log(ModelsCollection.options.Count);
 
         // Load into dropdown
         ModelsCollection.AddOptions(dropdownOptions);
+        Debug.Log(ModelsCollection.options.Count);
     }
 
     private void ConfigureListeners()
     {
-        SearchButton.onClick.AddListener(delegate {
+        // Object Model Processing Buttons
+        SearchButton.onClick.AddListener(delegate
+        {
             OpenFileChooser(true);
         });
-        CloseButton.onClick.AddListener(delegate {
-            enabled = true;
-        });
-        SearchButton.onClick.AddListener(delegate {
-            OpenFileChooser(true);
-        });
-        QuitButton.onClick.AddListener(delegate {
+
+        // Control App Flow Buttons
+        QuitButton.onClick.AddListener(delegate
+        {
             UnityEditor.EditorApplication.isPlaying = false;
         });
-        ExplorationModeToggle.onValueChanged.AddListener(delegate {
+
+        // Environment Settings Option Buttons
+        CloseButton.onClick.AddListener(delegate
+        {
+            gameObject.SetActive(false);
+        });
+        ExplorationModeToggle.onValueChanged.AddListener(delegate
+        {
             EnableExplorationMode(ExplorationModeToggle.isOn);
         });
-        LightsToggle.onValueChanged.AddListener(delegate {
+        LightsToggle.onValueChanged.AddListener(delegate
+        {
             EnableLightsRoom(LightsToggle.isOn);
         });
-        LampLightSlider.onValueChanged.AddListener(delegate {
+        LampsToggle.onValueChanged.AddListener(delegate
+        {
+            EnableLampsRoom(LampsToggle.isOn);
+        });
+        LampLightSlider.onValueChanged.AddListener(delegate
+        {
             ChangeSpotlightsIntesity(LampLightSlider.value);
         });
-        // Button importButton = GameObject.Find("Import Button").GetComponent<Button>();
-        // importButton.onClick.AddListener(delegate { ImportModel(); });
 
-
-
-        Button loadButton = GameObject.Find("Load Model Button").GetComponent<Button>();
-        loadButton.onClick.AddListener(delegate { LoadModel(); });
+        // ImportButton.onClick.AddListener(delegate { ImportModel(); });
+        LoadButton.onClick.AddListener(delegate
+        {
+            LoadModel();
+        });
     }
 
     private void ChangeSpotlightsIntesity(float value)
     {
         var spotLights = GameObject.FindGameObjectsWithTag("Spot");
-        Debug.Log(value);
-
-        if (value > INTENSITY_MAX) value = INTENSITY_MAX;
-        if (value < INTENSITY_MIN) value = INTENSITY_MIN;
 
         foreach (var spot in spotLights)
         {
-            spot.GetComponent<Light>().intensity = value;
+            spot.GetComponent<Light>().intensity = value * LAMP_INTENSITY_MAX;
         }
     }
 
     private void EnableExplorationMode(bool enabled)
     {
-        var target = GameObject.FindGameObjectWithTag("Target");
+        var targets = GameObject.FindGameObjectsWithTag("Target");
 
-        if (target != null)
+        if (targets != null)
         {
-            var physics = target.GetComponent<Rigidbody>();
-            physics.isKinematic = enabled;
-            physics.useGravity = !enabled;
+            foreach (var target in targets)
+            {
+                var physics = target.GetComponent<Rigidbody>();
+                physics.isKinematic = enabled;
+                physics.useGravity = !enabled;
+            }
         }
     }
 
@@ -196,18 +212,30 @@ public class FileManager : MonoBehaviour
         GameObject[] lights = GameObject.FindGameObjectsWithTag("Lights");
         foreach (var light in lights)
         {
-            light.gameObject.SetActive(enabled);
+            light.GetComponent<Light>().enabled = enabled;
+        }
+    }
+
+    private void EnableLampsRoom(bool enabled)
+    {
+        GameObject[] spotLights = GameObject.FindGameObjectsWithTag("Spot");
+        foreach (var spot in spotLights)
+        {
+            spot.GetComponent<Light>().enabled = enabled;
         }
     }
 
     private void LoadModel()
     {
-        modelPath = @"Assets\Imports\" + ModelsCollection.options[ModelsCollection.value].text;
+        destinationPath = ModelsCollection.options[ModelsCollection.value].text;
+        destinationPath = destinationPath.Replace(".prefab", "");
+        Debug.Log("LoadModel - Cargando modelo en escena: " + destinationPath);
 
+        GameObject instance = Instantiate(Resources.Load(destinationPath, typeof(GameObject)), new Vector3(0, 5, 0), Quaternion.identity) as GameObject;
     }
 
     private void OnDisable()
     {
-        PlayerPrefs.SetString("ModelPath", modelPath);
+        PlayerPrefs.SetString("ModelPath", destinationPath);
     }
 }

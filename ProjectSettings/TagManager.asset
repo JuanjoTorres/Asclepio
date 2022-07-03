@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lights
   - Spot
+  - Target
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - Ground
   - Body
   - Grab Ignore Ray
-  - 
-  - 
+  - Sliceable
+  - Slicer
   - 
   - 
   - 
