@@ -55,11 +55,13 @@ public class PhysicsButton : MonoBehaviour
         }
             
         menu.SetActive(_isEnabledMenu);
+        Debug.Log("Pressed");
     }
 
     private void Released()
     {
         _isPressed = false;
+        Debug.Log("Released");
     }
     #endregion
 }

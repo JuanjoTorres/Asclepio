@@ -1,9 +1,7 @@
 {
     "name": "SimpleFileBrowser.Runtime",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:fe685ec1767f73d42b749ea8045bfe43",
-        "GUID:190979c3ed6e41c448f5e9925429edf9"
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -9,7 +9,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
-using UnityEngine.XR.Interaction.Toolkit.UI;
 #if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
 using UnityEngine.InputSystem;
 #endif
@@ -334,55 +333,28 @@ namespace SimpleFileBrowser
 			get
 			{
 				if( !m_instance )
-                {
-                    m_instance = Instantiate(Resources.Load<GameObject>("SimpleFileBrowserCanvas")).GetComponent<FileBrowser>();
+				{
+					m_instance = Instantiate( Resources.Load<GameObject>( "SimpleFileBrowserCanvas" ) ).GetComponent<FileBrowser>();
 
-                    // changed code from original
-                    m_instance.gameObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
-                    m_instance.gameObject.transform.position = new Vector3(-3.91f, 3.05f, -3.97f);
-                    m_instance.gameObject.transform.rotation = Quaternion.Euler(30, -90, 0);
-                    m_instance.gameObject.transform.localScale = new Vector3(0.00789f, 0.00789f, 0.00789f);
-                    m_instance.gameObject.AddComponent<TrackedDeviceGraphicRaycaster>();
+					// code changed from original
+					m_instance.gameObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+					m_instance.gameObject.transform.position = new Vector3(-4, 3, 4);
+					m_instance.gameObject.transform.rotation = Quaternion.Euler(30, -90, 0);
+					m_instance.gameObject.transform.localScale = new Vector3(0.0265f, 0.0265f, 0.0265f);
+					// end code changed
 
-                    Debug.Log("Longitud:" + m_instance.gameObject.transform.GetChildCount());
-                    ReturnDecendantOfParent(m_instance.gameObject, "Files");
+					DontDestroyOnLoad( m_instance.gameObject );
+					m_instance.gameObject.SetActive( false );
+				}
 
-                    descendant.AddComponent<TrackedDeviceGraphicRaycaster>();
-                    // end changed code
-
-                    DontDestroyOnLoad(m_instance.gameObject);
-                    m_instance.gameObject.SetActive(false);
-                }
-
-                return m_instance;
+				return m_instance;
 			}
 		}
+		#endregion
 
-		// changed code from original
-        private static GameObject ReturnDecendantOfParent(GameObject parent, string descendantName)
-        {
-            foreach (Transform child in parent.transform)
-            {
-                if (child.name == descendantName)
-                {
-					descendant = child.gameObject;
-                    Debug.Log("Child encontrado");
-                    break;
-                }
-                else
-                {
-					ReturnDecendantOfParent(child.gameObject, descendantName);
-                }
-            }
-
-			return descendant;
-        }
-		// end changed code
-        #endregion
-
-        #region Variables
+		#region Variables
 #pragma warning disable 0649
-        [Header( "Settings" )]
+		[Header( "Settings" )]
 		[SerializeField]
 		internal int minWidth = 380;
 		[SerializeField]
@@ -808,11 +780,10 @@ namespace SimpleFileBrowser
 
 		private OnSuccess onSuccess;
 		private OnCancel onCancel;
-        private static GameObject descendant = null;
-        #endregion
+		#endregion
 
-        #region Messages
-        private void Awake()
+		#region Messages
+		private void Awake()
 		{
 			m_instance = this;
 
