@@ -344,7 +344,7 @@ namespace SimpleFileBrowser
                     m_instance.gameObject.transform.localScale = new Vector3(0.00789f, 0.00789f, 0.00789f);
                     m_instance.gameObject.AddComponent<TrackedDeviceGraphicRaycaster>();
 
-                    Debug.Log("Longitud:" + m_instance.gameObject.transform.childCount);
+                    Debug.Log("Longitud:" + m_instance.gameObject.transform.GetChildCount());
                     ReturnDecendantOfParent(m_instance.gameObject, "Files");
 
                     descendant.AddComponent<TrackedDeviceGraphicRaycaster>();
