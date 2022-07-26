@@ -63,12 +63,10 @@ namespace ImporterUtils
                 asset.layer = 8; // Layer Grab
                 asset.tag = "Target";
 
-                Debug.Log($"New prefab \"{prefabName}\" imported in \"{localPath}\"");
-                PrefabUtility.SaveAsPrefabAsset(asset, localPath);
+                // Debug.Log($"New prefab \"{prefabName}\" imported in \"{localPath}\"");
+                // PrefabUtility.SaveAsPrefabAsset(asset, localPath);
 
-                // Instantiate(asset, spawnPointer.position, transform.rotation);
-                // DestroyImmediate(asset);
-                // asset.transform.position = spawnPointer.transform.position;
+                Instantiate(asset, new Vector3(0, 3, 0), Quaternion.identity);
             }
         }
 
