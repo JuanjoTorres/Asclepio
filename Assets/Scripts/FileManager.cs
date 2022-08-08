@@ -1,4 +1,4 @@
-﻿using ImporterUtils;
+﻿using Dummiesman;
 using SimpleFileBrowser;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +13,8 @@ public class FileManager : MonoBehaviour
     string outputPath;
     string sourcePath;
     string destinationPath;
+    GameObject loadedObject;
+    GameObject childLoadedObject;
 
     [Header("Lists and Dropdowns")]
     public Dropdown ModelsCollection;
@@ -42,10 +44,8 @@ public class FileManager : MonoBehaviour
     private void OpenFileChooser(bool value)
     {
         FileBrowser.SetFilters(true,
-            new FileBrowser.Filter("Images", ".jpg", ".png"),
-            new FileBrowser.Filter("Text Files", ".txt", ".pdf"),
-            new FileBrowser.Filter("Stereolitography Files", ".stl"));
-        FileBrowser.SetDefaultFilter(".stl");
+            new FileBrowser.Filter("Wavefront Files", ".obj"));
+        FileBrowser.SetDefaultFilter(".obj");
         FileBrowser.SetExcludedExtensions(".lnk", ".tmp", ".zip", ".rar", ".exe");
         FileBrowser.AddQuickLink("Users", "C:\\Users", null);
 
@@ -99,11 +99,26 @@ public class FileManager : MonoBehaviour
 
     private IEnumerator ImportModel()
     {
-        // Calling STL Importer 
-        if (!string.IsNullOrEmpty(sourcePath))
+        if (File.Exists(sourcePath))
         {
-            ImporterManager.ProcessSTL(sourcePath);
-            UpdateDropdown();
+            if (loadedObject != null)
+                Destroy(loadedObject);
+            loadedObject = new OBJLoader().Load(sourcePath);
+
+            if (childLoadedObject != null)
+            {
+                Destroy(childLoadedObject);
+            }
+
+            childLoadedObject = loadedObject.transform.GetChild(0).gameObject;
+
+            var collider = childLoadedObject.AddComponent<BoxCollider>();
+
+            childLoadedObject.GetComponent<Renderer>().material = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            childLoadedObject.AddComponent<XROffsetGrabInteractable>();
+            childLoadedObject.tag = "Model";
+            childLoadedObject.layer = LayerMask.NameToLayer("Grab");
+            childLoadedObject.transform.position = new Vector3(0, 4, 0);
         }
 
         yield return null;
@@ -175,11 +190,8 @@ public class FileManager : MonoBehaviour
             ChangeSpotlightsIntesity(LampLightSlider.value);
         });
 
-        // ImportButton.onClick.AddListener(delegate { ImportModel(); });
-        LoadButton.onClick.AddListener(delegate
-        {
-            LoadModel();
-        });
+
+
     }
 
     private void ChangeSpotlightsIntesity(float value)
@@ -194,12 +206,14 @@ public class FileManager : MonoBehaviour
 
     private void EnableExplorationMode(bool enabled)
     {
-        var targets = GameObject.FindGameObjectsWithTag("Target");
+        var targets = GameObject.FindGameObjectsWithTag("Model");
+        Debug.Log(enabled);
 
         if (targets != null)
         {
             foreach (var target in targets)
             {
+                Debug.Log(target.name);
                 var physics = target.GetComponent<Rigidbody>();
                 physics.isKinematic = enabled;
                 physics.useGravity = !enabled;
@@ -225,17 +239,5 @@ public class FileManager : MonoBehaviour
         }
     }
 
-    private void LoadModel()
-    {
-        destinationPath = ModelsCollection.options[ModelsCollection.value].text;
-        destinationPath = destinationPath.Replace(".prefab", "");
-        Debug.Log("LoadModel - Cargando modelo en escena: " + destinationPath);
 
-        GameObject instance = Instantiate(Resources.Load(destinationPath, typeof(GameObject)), new Vector3(0, 5, 0), Quaternion.identity) as GameObject;
-    }
-
-    private void OnDisable()
-    {
-        PlayerPrefs.SetString("ModelPath", destinationPath);
-    }
 }

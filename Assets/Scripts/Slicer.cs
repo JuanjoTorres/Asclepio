@@ -4,12 +4,13 @@ using UnityEngine.UI;
 
 public class Slicer : MonoBehaviour
 {
-    public Material materialAfterSlice;
     public LayerMask sliceMask;
     public bool isTouched;
     public bool isPress;
     public Transform cutPlane;
     public Text degreesOfCut;
+
+    public Material materialAfterSlice;
 
     private void Update()
     {
@@ -24,11 +25,11 @@ public class Slicer : MonoBehaviour
 
             for (int i = 0; i < hits.Length; i++)
             {
-                SlicedHull hull = SliceObject(hits[i].gameObject, materialAfterSlice);
+                SlicedHull hull = SliceObject(hits[i].gameObject);
                 if (hull != null)
                 {
-                    GameObject top = hull.CreateUpperHull(hits[i].gameObject);
-                    GameObject bottom = hull.CreateLowerHull(hits[i].gameObject);
+                    GameObject top = hull.CreateUpperHull(hits[i].gameObject, materialAfterSlice);
+                    GameObject bottom = hull.CreateLowerHull(hits[i].gameObject, materialAfterSlice);
 
                     AddHullComponents(top);
                     AddHullComponents(bottom);
@@ -41,11 +42,12 @@ public class Slicer : MonoBehaviour
 
     public void AddHullComponents(GameObject go)
     {
-        go.layer = LayerMask.NameToLayer("Sliceable");
+        go.layer = LayerMask.NameToLayer("Grab");
+        go.tag ="Model";
         Rigidbody rb = go.AddComponent<Rigidbody>();
         rb.interpolation = RigidbodyInterpolation.Interpolate;
-        MeshCollider collider = go.AddComponent<MeshCollider>();
-        collider.convex = true;
+        BoxCollider collider = go.AddComponent<BoxCollider>();
+        go.AddComponent<XROffsetGrabInteractable>();
 
         rb.AddExplosionForce(100, go.transform.position, 20);
     }
