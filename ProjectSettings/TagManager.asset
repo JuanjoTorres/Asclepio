@@ -7,6 +7,7 @@ TagManager:
   - Lights
   - Spot
   - Target
+  - Model
   layers:
   - Default
   - TransparentFX

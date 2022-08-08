@@ -53,20 +53,20 @@ namespace ImporterUtils
                     meshCount++;
                 }
 
-                // Add components
                 asset.AddComponent<MeshRenderer>();
-                asset.AddComponent<BoxCollider>();
+                asset.AddComponent<MeshFilter>();
+                asset.AddComponent<MeshCollider>();
                 asset.AddComponent<Rigidbody>();
                 asset.AddComponent<XROffsetGrabInteractable>();
                 asset.AddComponent<Paintable>();
 
                 asset.layer = 8; // Layer Grab
-                asset.tag = "Target";
+                asset.tag = "Model";
+                asset.transform.position = new Vector3(0, 4, 0);
 
                 // Debug.Log($"New prefab \"{prefabName}\" imported in \"{localPath}\"");
                 // PrefabUtility.SaveAsPrefabAsset(asset, localPath);
 
-                Instantiate(asset, new Vector3(0, 3, 0), Quaternion.identity);
             }
         }
 
