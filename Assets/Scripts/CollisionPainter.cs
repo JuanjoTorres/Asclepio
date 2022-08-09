@@ -13,12 +13,6 @@ public class CollisionPainter : MonoBehaviour
         Paintable p = other.collider.GetComponent<Paintable>();
         if (p != null)
         {
-            Debug.Log("Soy pintable!");
-            Debug.Log("radius: " + radius);
-            Debug.Log("hardness: " + hardness);
-            Debug.Log("strength: " + strength);
-            Debug.Log("paintColor: " + paintColor);
-
             Vector3 pos = other.contacts[0].point;
             PaintManager.instance.paint(p, pos, radius, hardness, strength, paintColor);
         }
