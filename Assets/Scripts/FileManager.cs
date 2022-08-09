@@ -12,17 +12,12 @@ public class FileManager : MonoBehaviour
 
     string outputPath;
     string sourcePath;
-    string destinationPath;
     GameObject loadedObject;
     GameObject childLoadedObject;
-
-    [Header("Lists and Dropdowns")]
-    public Dropdown ModelsCollection;
 
     [Header("Buttons")]
     public Button QuitButton;
     public Button SearchButton;
-    public Button LoadButton;
     public Button CloseButton;
 
     [Header("Another Inputs")]
@@ -31,14 +26,10 @@ public class FileManager : MonoBehaviour
     public Toggle LampsToggle;
     public Slider LampLightSlider;
 
-    // InputField modelName;
-
     private void Awake()
     {
-        // modelName = GameObject.Find("Model Name Field").GetComponent<InputField>();
 
         ConfigureListeners();
-        UpdateDropdown();
     }
 
     private void OpenFileChooser(bool value)
@@ -50,8 +41,6 @@ public class FileManager : MonoBehaviour
         FileBrowser.AddQuickLink("Users", "C:\\Users", null);
 
         StartCoroutine(ShowLoadDialogCoroutine(value));
-        // ImportModel(); LoadModel
-
     }
 
     private IEnumerator ShowLoadDialogCoroutine(bool value)
@@ -66,7 +55,6 @@ public class FileManager : MonoBehaviour
 
         // Dialog is closed
         // Print whether the user has selected some files/folders or cancelled the operation (FileBrowser.Success)
-        // Debug.Log(FileBrowser.Success);
 
         if (FileBrowser.Success)
         {
@@ -90,7 +78,6 @@ public class FileManager : MonoBehaviour
 
             // Or, copy the first file to persistentDataPath
             sourcePath = Path.Combine(Application.persistentDataPath, FileBrowserHelpers.GetFilename(FileBrowser.Result[0]));
-            Debug.Log("Source path: " + sourcePath);
             FileBrowserHelpers.CopyFile(FileBrowser.Result[0], sourcePath);
 
             StartCoroutine(ImportModel());
@@ -124,36 +111,6 @@ public class FileManager : MonoBehaviour
         yield return null;
     }
 
-    private void UpdateDropdown()
-    {
-        // Create a List of new Dropdown options
-        List<string> dropdownOptions = new List<string>();
-
-        DirectoryInfo directory = new DirectoryInfo(@"Assets\Resources");
-        FileInfo[] files = directory.GetFiles("*.prefab");
-
-        foreach (FileInfo file in files)
-        {
-            // Create list
-            dropdownOptions.Add(file.Name);
-            Debug.Log(file.Name);
-        }
-
-        // Clear dropdown
-        int modelsCount = ModelsCollection.options.Count;
-
-        for (int x = 0; x < modelsCount; x++)
-        {
-            ModelsCollection.options.RemoveAt(0);
-        }
-
-        Debug.Log(ModelsCollection.options.Count);
-
-        // Load into dropdown
-        ModelsCollection.AddOptions(dropdownOptions);
-        Debug.Log(ModelsCollection.options.Count);
-    }
-
     private void ConfigureListeners()
     {
         // Object Model Processing Buttons
@@ -173,25 +130,26 @@ public class FileManager : MonoBehaviour
         {
             gameObject.SetActive(false);
         });
+
         ExplorationModeToggle.onValueChanged.AddListener(delegate
         {
             EnableExplorationMode(ExplorationModeToggle.isOn);
         });
+
         LightsToggle.onValueChanged.AddListener(delegate
         {
             EnableLightsRoom(LightsToggle.isOn);
         });
+
         LampsToggle.onValueChanged.AddListener(delegate
         {
             EnableLampsRoom(LampsToggle.isOn);
         });
+
         LampLightSlider.onValueChanged.AddListener(delegate
         {
             ChangeSpotlightsIntesity(LampLightSlider.value);
         });
-
-
-
     }
 
     private void ChangeSpotlightsIntesity(float value)
@@ -207,13 +165,11 @@ public class FileManager : MonoBehaviour
     private void EnableExplorationMode(bool enabled)
     {
         var targets = GameObject.FindGameObjectsWithTag("Model");
-        Debug.Log(enabled);
 
         if (targets != null)
         {
             foreach (var target in targets)
             {
-                Debug.Log(target.name);
                 var physics = target.GetComponent<Rigidbody>();
                 physics.isKinematic = enabled;
                 physics.useGravity = !enabled;
@@ -238,6 +194,4 @@ public class FileManager : MonoBehaviour
             spot.GetComponent<Light>().enabled = enabled;
         }
     }
-
-
 }

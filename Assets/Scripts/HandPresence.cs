@@ -51,10 +51,6 @@ public class HandPresence : MonoBehaviour
         // Caracteristicas del controlador de la mano derecha.
         InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
 
-        foreach (var device in devices)
-            Debug.Log(device.name + " " + device.characteristics);
-
-
         if (devices.Count > 0)
         {
             targetDevice = devices[0];
